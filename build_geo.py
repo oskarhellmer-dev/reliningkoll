@@ -30,6 +30,74 @@ CITY_SET = [s for s, d in GEO.items() if d["totalt"] >= 20000]
 CITY_SET.sort(key=lambda s: -GEO[s]["totalt"])
 TOP_SERVICE = CITY_SET[:10]  # endast orter med dokumenterad sokvolym
 
+# ---------------------------------------------------------------- lokal statistik
+# Allt nedan räknas ur RIKTIG SCB-data (byggnadsperiod per årtionde, 2024).
+COHORT_60_70 = ["1961-1970", "1971-1980"]          # miljonprogramsåren
+PRE1970_P = ["-1930", "1931-1940", "1941-1950", "1951-1960", "1961-1970"]
+
+def _psum(period, hus, periods):
+    dd = period.get(hus, {})
+    return sum(dd.get(p, 0) for p in periods)
+
+def _mun_stats(d):
+    p = d.get("period", {})
+    tot = sum(p.get("SMÅHUS", {}).values()) + sum(p.get("FLERBOST", {}).values())
+    return {
+        "tot": tot,
+        "pre": _psum(p, "SMÅHUS", PRE1970_P) + _psum(p, "FLERBOST", PRE1970_P),
+        "cohort": _psum(p, "SMÅHUS", COHORT_60_70) + _psum(p, "FLERBOST", COHORT_60_70),
+        "cohort_sm": _psum(p, "SMÅHUS", COHORT_60_70),
+        "cohort_fb": _psum(p, "FLERBOST", COHORT_60_70),
+    }
+
+MUN = {s: _mun_stats(d) for s, d in GEO.items()}
+LAN_MEMBERS = {}
+for s, d in GEO.items():
+    LAN_MEMBERS.setdefault(d["lan"], []).append(s)
+RANK, LAN_SHARE = {}, {}
+for lan, members in LAN_MEMBERS.items():
+    scored = [(s, MUN[s]["pre"] / MUN[s]["tot"]) for s in members if MUN[s]["tot"]]
+    scored.sort(key=lambda x: -x[1])
+    n = len(scored)
+    tp = sum(MUN[s]["pre"] for s, _ in scored)
+    tt = sum(MUN[s]["tot"] for s, _ in scored)
+    LAN_SHARE[lan] = round(100 * tp / tt) if tt else 0
+    for i, (s, _) in enumerate(scored):
+        RANK[s] = (i + 1, n)
+
+NAT_PRE = sum(v["pre"] for v in MUN.values())
+NAT_TOT = sum(v["tot"] for v in MUN.values())
+NAT_SHARE = round(100 * NAT_PRE / NAT_TOT) if NAT_TOT else 0
+
+def miljon(d):
+    s = MUN.get(d["slug"])
+    if not s or not s["tot"]:
+        return ""
+    cs = round(100 * s["cohort"] / s["tot"])
+    return (f"1961–1980 byggdes {fmt(s['cohort'])} bostäder i {d['name']}: {fmt(s['cohort_fb'])} lägenheter "
+            f"i flerbostadshus och {fmt(s['cohort_sm'])} småhus. {cs} procent av hela beståndet tillkom "
+            f"under de två årtiondena, och rören därifrån är de som slitits hårdast.")
+
+def lan_rank_text(slug):
+    r = RANK.get(slug)
+    if not r or not MUN[slug]["tot"]:
+        return ""
+    rank, n = r
+    d = GEO[slug]
+    pct = round(100 * MUN[slug]["pre"] / MUN[slug]["tot"])
+    la = LAN_SHARE.get(d["lan"], 0)
+    pos = "den högsta" if rank == 1 else ("den näst högsta" if rank == 2 else f"den {rank}:e högsta")
+    if rank <= max(1, int(n * 0.25)):
+        tail = "Kommunen hör till toppskiktet i länet, och gjutjärnsfrågan är särskilt aktuell här."
+    elif pct >= la:
+        tail = "Andelen ligger över länssnittet, vilket gör gjutjärnsfrågan aktuell i de äldre kvarteren."
+    elif pct >= NAT_SHARE:
+        tail = "Andelen ligger under länssnittet men över rikssnittet, så gjutjärnsrör förekommer i de äldre husen."
+    else:
+        tail = "Andelen är lägre än i länet, men de äldsta husen har ändå gjutjärnsrör som kan behöva ses över."
+    return (f"{d['name']} har {pos} andelen bostäder byggda före 1970 av {n} kommuner i {d['lan']} "
+            f"({pct} procent, mot {la} procent i länet och {NAT_SHARE} procent i riket). {tail}")
+
 PERIODS = ["-1930", "1931-1940", "1941-1950", "1951-1960", "1961-1970",
            "1971-1980", "1981-1990", "1991-2000", "2001-2010", "2011-2020", "2021-"]
 PKORT = {"-1930": "före 1930", "1931-1940": "1931–1940", "1941-1950": "1941–1950",
@@ -194,9 +262,11 @@ def build_cities_geo():
           <h2>När byggdes husen i {esc(name)}?</h2>
           {ptbl}
           <p>{pnarr}</p>
+          <h2>60- och 70-talshusen i {esc(name)}</h2>
+          <p>{miljon(d)}</p>
+          <p>{lan_rank_text(slug)}</p>
           <h2>Vad det betyder för avloppet i {esc(name)}</h2>
           <p>{age(d)}</p>
-          <p>Rör som lagts före 1970 är oftast av gjutjärn. De rostar inifrån, bygger avlagringar och ger till slut återkommande stopp. Relining förnyar röret inifrån utan att golv, väggar eller trädgård behöver rivas.</p>
           {extra}
           <h2>Riktpriser i {esc(lan)}</h2>
           <p>För villa ligger komplett relining oftast mellan 80 000 och 250 000 kr, per meter rör 800–1 500 kr och en avloppsspolning 1 500–4 500 kr. <a href="/pris/">Se alla priser med räkneexempel</a>. I villa i {esc(name)} är arbetskostnaden ROT-berättigad, vilket ger 30 procent tillbaka upp till 50 000 kr per person och år.</p>
@@ -220,6 +290,9 @@ def build_cities_geo():
 
         faq = [("Hur många hus i "+name+" har gjutjärnsrör?",
                 f"{d['smahus_pre1950']} småhus byggdes före 1950 och {d['pre1970_andel']}% av bostäderna före 1970."),
+               ("Hur många bostäder i "+name+" byggdes under 60- och 70-talet?",
+                f"{fmt(MUN[slug]['cohort'])} bostäder byggdes 1961–1980, "
+                f"{round(100*MUN[slug]['cohort']/MUN[slug]['tot'])} procent av beståndet i {name}."),
                ("Vad kostar relining i "+name+"?",
                 "För en villa ligger priset oftast mellan 80 000 och 250 000 kr före ROT-avdrag.")]
         write(path + "index.html", page(f"Relining {name} – bostadsbestånd, pris och firmor | Reliningkoll",
