@@ -3,30 +3,16 @@
   <url><loc>https://oskarhellmer-dev.github.io/reliningkoll/</loc><changefreq>monthly</changefreq><priority>1.0</priority></url>
   <url><loc>https://oskarhellmer-dev.github.io/reliningkoll/anvandarvillkor/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://oskarhellmer-dev.github.io/reliningkoll/avloppsspolning/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://oskarhellmer-dev.github.io/reliningkoll/avloppsspolning/boras/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://oskarhellmer-dev.github.io/reliningkoll/avloppsspolning/eskilstuna/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://oskarhellmer-dev.github.io/reliningkoll/avloppsspolning/gavle/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://oskarhellmer-dev.github.io/reliningkoll/avloppsspolning/goteborg/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://oskarhellmer-dev.github.io/reliningkoll/avloppsspolning/halmstad/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://oskarhellmer-dev.github.io/reliningkoll/avloppsspolning/haninge/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://oskarhellmer-dev.github.io/reliningkoll/avloppsspolning/helsingborg/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://oskarhellmer-dev.github.io/reliningkoll/avloppsspolning/huddinge/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://oskarhellmer-dev.github.io/reliningkoll/avloppsspolning/jonkoping/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://oskarhellmer-dev.github.io/reliningkoll/avloppsspolning/karlstad/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://oskarhellmer-dev.github.io/reliningkoll/avloppsspolning/linkoping/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://oskarhellmer-dev.github.io/reliningkoll/avloppsspolning/lund/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://oskarhellmer-dev.github.io/reliningkoll/avloppsspolning/malmo/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://oskarhellmer-dev.github.io/reliningkoll/avloppsspolning/nacka/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://oskarhellmer-dev.github.io/reliningkoll/avloppsspolning/norrkoping/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://oskarhellmer-dev.github.io/reliningkoll/avloppsspolning/orebro/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://oskarhellmer-dev.github.io/reliningkoll/avloppsspolning/sodertalje/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://oskarhellmer-dev.github.io/reliningkoll/avloppsspolning/solna/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://oskarhellmer-dev.github.io/reliningkoll/avloppsspolning/stockholm/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://oskarhellmer-dev.github.io/reliningkoll/avloppsspolning/sundsvall/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://oskarhellmer-dev.github.io/reliningkoll/avloppsspolning/umea/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://oskarhellmer-dev.github.io/reliningkoll/avloppsspolning/uppsala/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://oskarhellmer-dev.github.io/reliningkoll/avloppsspolning/vasteras/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://oskarhellmer-dev.github.io/reliningkoll/avloppsspolning/vaxjo/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://oskarhellmer-dev.github.io/reliningkoll/for-proffs/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://oskarhellmer-dev.github.io/reliningkoll/foretag/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://oskarhellmer-dev.github.io/reliningkoll/guider/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
@@ -153,28 +139,14 @@
   <url><loc>https://oskarhellmer-dev.github.io/reliningkoll/relining/vasteras/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://oskarhellmer-dev.github.io/reliningkoll/relining/vaxjo/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://oskarhellmer-dev.github.io/reliningkoll/rorinspektion/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://oskarhellmer-dev.github.io/reliningkoll/rorinspektion/boras/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://oskarhellmer-dev.github.io/reliningkoll/rorinspektion/eskilstuna/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://oskarhellmer-dev.github.io/reliningkoll/rorinspektion/gavle/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://oskarhellmer-dev.github.io/reliningkoll/rorinspektion/goteborg/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://oskarhellmer-dev.github.io/reliningkoll/rorinspektion/halmstad/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://oskarhellmer-dev.github.io/reliningkoll/rorinspektion/haninge/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://oskarhellmer-dev.github.io/reliningkoll/rorinspektion/helsingborg/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://oskarhellmer-dev.github.io/reliningkoll/rorinspektion/huddinge/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://oskarhellmer-dev.github.io/reliningkoll/rorinspektion/jonkoping/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://oskarhellmer-dev.github.io/reliningkoll/rorinspektion/karlstad/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://oskarhellmer-dev.github.io/reliningkoll/rorinspektion/linkoping/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://oskarhellmer-dev.github.io/reliningkoll/rorinspektion/lund/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://oskarhellmer-dev.github.io/reliningkoll/rorinspektion/malmo/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://oskarhellmer-dev.github.io/reliningkoll/rorinspektion/nacka/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://oskarhellmer-dev.github.io/reliningkoll/rorinspektion/norrkoping/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://oskarhellmer-dev.github.io/reliningkoll/rorinspektion/orebro/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://oskarhellmer-dev.github.io/reliningkoll/rorinspektion/sodertalje/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://oskarhellmer-dev.github.io/reliningkoll/rorinspektion/solna/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://oskarhellmer-dev.github.io/reliningkoll/rorinspektion/stockholm/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://oskarhellmer-dev.github.io/reliningkoll/rorinspektion/sundsvall/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://oskarhellmer-dev.github.io/reliningkoll/rorinspektion/umea/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://oskarhellmer-dev.github.io/reliningkoll/rorinspektion/uppsala/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://oskarhellmer-dev.github.io/reliningkoll/rorinspektion/vasteras/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://oskarhellmer-dev.github.io/reliningkoll/rorinspektion/vaxjo/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
 </urlset>

@@ -3,30 +3,16 @@
   <url><loc>https://reliningkoll.se/</loc><changefreq>monthly</changefreq><priority>1.0</priority></url>
   <url><loc>https://reliningkoll.se/anvandarvillkor/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://reliningkoll.se/avloppsspolning/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://reliningkoll.se/avloppsspolning/boras/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://reliningkoll.se/avloppsspolning/eskilstuna/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://reliningkoll.se/avloppsspolning/gavle/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://reliningkoll.se/avloppsspolning/goteborg/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://reliningkoll.se/avloppsspolning/halmstad/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://reliningkoll.se/avloppsspolning/haninge/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://reliningkoll.se/avloppsspolning/helsingborg/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://reliningkoll.se/avloppsspolning/huddinge/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://reliningkoll.se/avloppsspolning/jonkoping/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://reliningkoll.se/avloppsspolning/karlstad/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://reliningkoll.se/avloppsspolning/linkoping/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://reliningkoll.se/avloppsspolning/lund/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://reliningkoll.se/avloppsspolning/malmo/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://reliningkoll.se/avloppsspolning/nacka/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://reliningkoll.se/avloppsspolning/norrkoping/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://reliningkoll.se/avloppsspolning/orebro/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://reliningkoll.se/avloppsspolning/sodertalje/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://reliningkoll.se/avloppsspolning/solna/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://reliningkoll.se/avloppsspolning/stockholm/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://reliningkoll.se/avloppsspolning/sundsvall/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://reliningkoll.se/avloppsspolning/umea/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://reliningkoll.se/avloppsspolning/uppsala/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://reliningkoll.se/avloppsspolning/vasteras/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://reliningkoll.se/avloppsspolning/vaxjo/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://reliningkoll.se/for-proffs/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://reliningkoll.se/foretag/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://reliningkoll.se/guider/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
@@ -153,28 +139,14 @@
   <url><loc>https://reliningkoll.se/relining/vasteras/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://reliningkoll.se/relining/vaxjo/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://reliningkoll.se/rorinspektion/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://reliningkoll.se/rorinspektion/boras/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://reliningkoll.se/rorinspektion/eskilstuna/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://reliningkoll.se/rorinspektion/gavle/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://reliningkoll.se/rorinspektion/goteborg/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://reliningkoll.se/rorinspektion/halmstad/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://reliningkoll.se/rorinspektion/haninge/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://reliningkoll.se/rorinspektion/helsingborg/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://reliningkoll.se/rorinspektion/huddinge/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://reliningkoll.se/rorinspektion/jonkoping/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://reliningkoll.se/rorinspektion/karlstad/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://reliningkoll.se/rorinspektion/linkoping/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://reliningkoll.se/rorinspektion/lund/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://reliningkoll.se/rorinspektion/malmo/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://reliningkoll.se/rorinspektion/nacka/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://reliningkoll.se/rorinspektion/norrkoping/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://reliningkoll.se/rorinspektion/orebro/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://reliningkoll.se/rorinspektion/sodertalje/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://reliningkoll.se/rorinspektion/solna/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://reliningkoll.se/rorinspektion/stockholm/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://reliningkoll.se/rorinspektion/sundsvall/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://reliningkoll.se/rorinspektion/umea/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://reliningkoll.se/rorinspektion/uppsala/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://reliningkoll.se/rorinspektion/vasteras/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://reliningkoll.se/rorinspektion/vaxjo/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
 </urlset>

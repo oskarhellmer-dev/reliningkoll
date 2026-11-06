@@ -280,7 +280,16 @@ def build_pages():
         <ol><li>Din förfrågan granskas manuellt så att den är seriös och komplett.</li>
         <li>Vi skickar den till upp till tre granskade firmor som arbetar i din kommun.</li>
         <li>Du kontaktas av firmorna och jämför offerter i lugn och ro.</li></ol>
-        <div class="callout"><p>Du bestämmer helt själv om du vill gå vidare. Att ta emot offerter kostar ingenting och binder dig inte.</p></div></div>
+        <div class="callout"><p>Du bestämmer helt själv om du vill gå vidare. Att ta emot offerter kostar ingenting och binder dig inte.</p></div>
+        <h2>Vad som händer efteråt</h2>
+        <p>Firmorna som tar del av din förfrågan kontaktar dig direkt, oftast inom ett par arbetsdagar. De kan vilja boka en inspektion innan de lämnar pris, eftersom rörens skick avgör både metod och kostnad. Jämför offerterna på vad som ingår — inspektion före och efter, dokumentation och garanti — inte bara på priset.</p>
+        <h2>Vanliga frågor om att begära offert</h2>
+        <div class="faq">
+          <details><summary>Kostar det något att begära offerter?</summary><p>Nej. Tjänsten är kostnadsfri för dig som privatperson och du har ingen skyldighet att anlita någon.</p></details>
+          <details><summary>Hur många firmor kontaktar mig?</summary><p>Upp till tre entreprenörer som arbetar i din kommun och som matchar ditt ärende.</p></details>
+          <details><summary>Kan jag begära offert utan att ha bestämt mig?</summary><p>Ja. Många använder offerterna bara för att få en prisbild innan de fattar beslut.</p></details>
+          <details><summary>Vad behöver jag veta innan jag fyller i formuläret?</summary><p>Räcker med vad ärendet gäller, din ort och hur du kan nås. Kan du beskriva tidigare stopp eller om rören är av gjutjärn är det ett plus.</p></details>
+        </div></div>
       </div></section>'''
     write("/offert/index.html", page("Få offerter på relining gratis | Reliningkoll",
       "Fyll i ditt projekt och få upp till tre offerter på relining, avloppsspolning eller rörinspektion från lokala firmor. Gratis och utan förpliktelse.",
@@ -310,7 +319,16 @@ def build_pages():
         <ul><li>Godkänd F-skatt och momsregistrering</li><li>Giltig ansvarsförsäkring</li>
         <li>Inga betalningar hos Kronofogden</li><li>Erfarenhet av relining</li><li>Referenser och omdömen</li></ul>
         <div class="callout"><p>Ingen bindningstid, ingen månadsavgift och ingen startkostnad. Du betalar bara för de förfrågningar du väljer att ta del av.</p></div>
-        <div class="cta-band"><h2>Redo att ta emot leads?</h2><p>Mejla oss och berätta vilka kommuner du arbetar i.</p>
+        <h2>Så följs kvaliteten upp</h2>
+        <p>Anslutning är en tröskel, inte en engångskontroll. Vi följer upp hur arbetet utförs, att inspektion görs före och efter, att dokumentation lämnas och att garantin håller vad som utlovats. En firma som inte lever upp till kraven tas bort från tjänsten.</p>
+        <h2>Vanliga frågor för firmor</h2>
+        <div class="faq">
+          <details><summary>Vad kostar det att vara ansluten?</summary><p>Ingen startkostnad och ingen månadsavgift. Du betalar bara för de förfrågningar du själv väljer att ta del av.</p></details>
+          <details><summary>Är jag bunden av ett avtal?</summary><p>Nej. Det finns ingen bindningstid, och du väljer vilka leads du vill ta del av.</p></details>
+          <details><summary>I vilka områden kan jag ta emot jobb?</summary><p>Du anger själv vilka kommuner du arbetar i, och får bara förfrågningar som matchar dem.</p></details>
+          <details><summary>Sorteras leads efter anbud?</summary><p>Nej. Ingen firma kan köpa sig bättre placering. Du konkurrerar på pris, metod och bemötande — som sig bör.</p></details>
+        </div>
+        <div class="cta-band cta-mt"><h2>Redo att ta emot leads?</h2><p>Mejla oss och berätta vilka kommuner du arbetar i.</p>
           <a class="btn btn-primary btn-lg" href="mailto:{FORM_EMAIL}?subject=Anslut%20mitt%20företag">Anslut ditt företag</a></div>
       </div></div></section>'''
     write("/for-proffs/index.html", page("Få fler reliningjobb – anslut ditt företag | Reliningkoll",
@@ -330,6 +348,10 @@ def build_pages():
         <h2>Så granskar vi företagen</h2>
         <ul><li>Godkänd F-skatt och momsregistrering</li><li>Ansvarsförsäkring</li>
         <li>Inga betalningar hos Kronofogden</li><li>Erfarenhet av relining</li><li>Kontinuerlig uppföljning av omdömen</li></ul>
+        <h2>Vår syn på data och källor</h2>
+        <p>All statistik på sajten kommer från öppna källor, i första hand SCB:s öppna API, och redovisas med källa där den används. Vi hittar aldrig på siffror, kundomdömen eller referensprojekt. Saknas underlag skriver vi det, i stället för att fylla ut med påståenden.</p>
+        <h2>Redaktionella principer</h2>
+        <p>Guider och prissidor skrivs för att hjälpa dig fatta ett beslut, inte för att sälja in en enskild firma. Vi rekommenderar inga specifika företag, och ingen firma kan köpa sig bättre placering än någon annan.</p>
         <h2>Kontakt</h2>
         <p>Mejla oss på <a href="mailto:{FORM_EMAIL}">{FORM_EMAIL}</a>. Vi svarar normalt inom en arbetsdag.</p>
       </div></div></section>'''
@@ -350,6 +372,14 @@ def build_pages():
       <p>Du har rätt att begära utdrag, rättelse eller radering av dina uppgifter. Kontakta oss på <a href="mailto:{FORM_EMAIL}">{FORM_EMAIL}</a>.</p>
       <h2>Lagringstid</h2>
       <p>Vi sparar uppgifterna så länge de behövs för att hantera din förfrågan och därefter enligt gällande lagkrav.</p>
+      <h2>Cookies</h2>
+      <p>Sajten använder inga cookies för marknadsföring eller spårning. Formuläret skickas via en extern formulärtjänst som hanterar uppgifterna för vår räkning enligt avtal.</p>
+      <h2>Personuppgiftsbiträden</h2>
+      <p>Vi anlitar tjänsteleverantörer för e-post och webbhotell. Dessa behandlar uppgifter enligt våra instruktioner och får inte använda dem för egna ändamål.</p>
+      <h2>Ändringar</h2>
+      <p>Vi kan uppdatera denna policy när tjänsten förändras. Väsentliga ändringar framgår av datumet för senaste uppdatering.</p>
+      <h2>Klagomål</h2>
+      <p>Anser du att vi behandlar dina uppgifter felaktigt kan du kontakta oss, och i andra hand klaga hos Integritetsskyddsmyndigheten.</p>
       </div></div></section>'''
     write("/integritetspolicy/index.html", page("Integritetspolicy – så hanterar Reliningkoll dina uppgifter",
       "Så behandlar Reliningkoll dina personuppgifter enligt GDPR. Vilka uppgifter vi samlar in, vem vi delar dem med och vilka rättigheter du har.", "/integritetspolicy/", body,
@@ -365,6 +395,12 @@ def build_pages():
       <p>Vi förmedlar kontakt men är inte part i avtalet mellan dig och entreprenören. Vi ansvarar inte för utfört arbete, pris eller garanti. Kontrollera alltid att entreprenören har F-skatt och försäkring innan du beställer.</p>
       <h2>Företag som ansluter sig</h2>
       <p>Anslutna företag ansvarar för att lämnade uppgifter är korrekta och att arbetet utförs enligt branschregler.</p>
+      <h2>Immateriella rättigheter</h2>
+      <p>Innehållet på sajten, inklusive text och statistik, tillhör Reliningkoll. Du får citera kortare avsnitt med tydlig hänvisning till källan.</p>
+      <h2>Ändringar av villkoren</h2>
+      <p>Vi kan uppdatera dessa villkor när tjänsten förändras. De villkor som gällde när du skickade din förfrågan gäller för den förfrågan.</p>
+      <h2>Tvist och lagval</h2>
+      <p>Svensk lag tillämpas. Tvist avgörs i första hand genom dialog mellan parterna.</p>
       <h2>Kontakt</h2>
       <p>Frågor om villkoren besvaras på <a href="mailto:{FORM_EMAIL}">{FORM_EMAIL}</a>.</p>
       </div></div></section>'''

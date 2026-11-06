@@ -28,7 +28,7 @@ for slug, name, lan, areas in M.ALL:
 
 CITY_SET = [s for s, d in GEO.items() if d["totalt"] >= 20000]
 CITY_SET.sort(key=lambda s: -GEO[s]["totalt"])
-TOP_SERVICE = CITY_SET[:24]
+TOP_SERVICE = CITY_SET[:10]  # endast orter med dokumenterad sokvolym
 
 PERIODS = ["-1930", "1931-1940", "1941-1950", "1951-1960", "1961-1970",
            "1971-1980", "1981-1990", "1991-2000", "2001-2010", "2011-2020", "2021-"]
@@ -241,6 +241,10 @@ def build_service_geo():
           <p>Ett enkelt stopp går ofta att lösa med vaskrensare, kokhett vatten eller genom att skruva loss och rengöra vattenlåset. Undvik starka kemiska avloppsrens, som kan skada äldre gjutjärnsrör och täta ledningar.</p>
           <h2>När du bör anlita en spolfirma</h2>
           <p>Sitter stoppet längre in än vattenlåset, påverkar flera avlopp samtidigt, eller återkommer det snabbt, krävs högtrycksspolning. Då används rätt tryck och dyse för rörets dimension, och ofta en kamera för att se orsaken. Är rören slitna invändigt kommer stoppet att återkomma tills röret åtgärdas — då är relining ofta rätt lösning.</p>
+          <h2>Vad spolning kostar</h2>
+          <p>En rensning av en enkel propp ligger vanligen mellan 800 och 1 800 kr. Högtrycksspolning i villa kostar oftast 1 500 till 3 500 kr, medan en fastighet med flera stammar landar mellan 3 000 och 6 000 kr. Akut utryckning kväll eller helg kan kosta 2 000 till 5 000 kr.</p>
+          <h2>Akut eller planerat</h2>
+          <p>Ett akut stopp mitt i natten kostar mer än en planerad spolning. Har du äldre rör och vet med dig att stopp återkommer är det billigare att boka förebyggande spolning i tid än att vänta på nästa översvämning. Be samtidigt om en kamera inspektion när firman ändå är på plats.</p>
           <h2>Så undviker du återkommande stopp</h2>
           <ul><li>Häll aldrig fett i avloppet, oavsett rörtyp.</li>
           <li>Använd sil i vask och dusch.</li>
@@ -272,6 +276,11 @@ def build_service_geo():
           <li>Inför köp av ett hus byggt före 1970.</li></ul>
           <h2>Vad rapporten ska innehålla</h2>
           <p>Du bör få filmen och ett protokoll med positionsangivelser, noterade skador och en rekommendation av åtgärd. Spara dokumentationen — den är underlag både för offerter och för framtida underhåll och försäljning.</p>
+          <h2>Inspektion eller besiktning?</h2>
+          <p>En rörinspektion med kamera visar rörens invändiga skick och är den åtgärd du beställer när du misstänker ett problem eller planerar relining. En avloppsbesiktning vid husköp är bredare och omfattar även brunnar, täthet och anslutningar. Båda bygger på samma kamerateknik, men beställs av olika skäl.</p>
+          <h2>Så bokar du</h2>
+          <p>Beskriv ditt ärende och din ort i formuläret, så förmedlar vi kontakt med lokala firmor som utför inspektion i din kommun. Du får film och protokoll, och kan därefter begära offert på den åtgärd inspektionen visar behövs — eller konstatera att rören är hela och att spolning räcker.</p>
+          <div class="callout"><p>Inspektionen är grunden för alla seriösa offerter på relining. Utan den går det inte att veta rörens dimension, längd eller skick.</p></div>
         </div></div></section>
         <section><div class="wrap"><div class="pills rv">{cards2}</div></div></section>''',
       crumb=[("Hem","/"),("Rörinspektion","/rorinspektion/")]))

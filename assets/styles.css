@@ -372,3 +372,4 @@ section h2:first-child,section>div>h2{margin-top:0}
 .s-kalla{color:var(--ink-soft)}.s-muted{color:var(--ink-soft)}
 .s-c640{max-width:640px;margin:0 auto}.s-mt16{margin-top:16px}.s-start{align-items:start}
 .s-center{justify-content:center}
+.cta-mt{margin-top:40px}
