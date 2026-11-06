@@ -8,11 +8,14 @@ import build_muni as M
 import build_part1 as P1
 import build_part2 as P2
 import build_scale as S
+import build_geo as GE
+import build_guides2 as G2
 
 # ---- injicera skalning
-P1.CITIES = M.ALL
+P1.CITIES = [t for t in M.ALL if t[0] in GE.GEO]      # behåll för ev. referens
 P2.CITIES = M.ALL
 P1.GUIDES.update(S.NEW_GUIDES)
+P1.GUIDES.update(G2.G)
 P2.PRICES.update(S.NEW_PRICES)
 P2.FIRMS = P2.FIRMS + S.NEW_FIRMS
 
@@ -20,15 +23,15 @@ P2.FIRMS = P2.FIRMS + S.NEW_FIRMS
 C.build_home()
 P1.build_guides()
 P2.build_prices()
-P2.build_cities()
+GE.build_cities_geo()      # data-drivna kommunsidor (60 st, riktig SCB-data)
 P2.build_firms()
-S.build_service_cities()
+GE.build_service_geo()     # data-drivna tjänsteorter (24 st)
 P2.build_pages()
 
-# 2. injicera kommun-länkar i startsidan
+# 2. injicera kommun-länkar i startsidan (endast kuraterade orter)
 idx = os.path.join(ROOT, "index.html")
 html = open(idx, encoding="utf-8").read()
-pills = ''.join(f'<a href="/relining/{s}/">{n}</a>' for s,n,_,_ in P1.CITIES)
+pills = ''.join(f'<a href="/relining/{s}/">{GE.GEO[s]["name"]}</a>' for s in GE.CITY_SET)
 html = html.replace('<div class="pills rv" id="city-pills"></div>',
                     f'<div class="pills rv">{pills}<a href="/relining/"><strong>Alla kommuner</strong></a></div>')
 open(idx, "w", encoding="utf-8").write(html)
