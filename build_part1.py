@@ -4,7 +4,7 @@ import sys, os, json, datetime
 sys.path.insert(0, "/home/clawd/reliningkoll")
 import build_core as C
 from build_extra import SUMMARY, CHECK
-from build_core import page, crumb_html, write, esc, logo_ph, BASE, FORM_EMAIL
+from build_core import page, crumb_html, write, esc, logo_ph, BASE, FORM_EMAIL, foto, foto_pair_block
 
 # ---------------------------------------------------------------- städer
 # (slug, namn, län, områden)  — verkliga grannorter/stadsdelar
@@ -75,6 +75,9 @@ GUIDES = {
   "h1":"Vad är relining? Metoden förklaras enkelt",
   "title":"Vad är relining? Så fungerar metoden (guide 2026) | Reliningkoll",
   "desc":"Relining förnyar avloppsrör inifrån utan att golv och väggar rivs. Här förklarar vi hur metoden fungerar, när den passar och vad den kostar.",
+  "img": foto_pair_block(
+    ("ror-fore","Insidan av ett rostigt gjutjärnsrör före relining.","Före","Rost, avlagringar och skrovlig yta.",1000,750),
+    ("ror-efter","Insidan av ett avloppsrör efter relining, med slätt epoxifoder.","Efter","Skarvfritt epoxifoder, slätt och tätt.",1000,750)),
   "body": sec("Relining i korthet", [
     "Relining är ett samlingsnamn för metoder som förnyar insidan av befintliga avloppsrör. I stället för att byta ut rören monterar man ett nytt rör inuti det gamla. Resultatet blir ett skarvfritt, tätt rör med ny livslängd, utan att golv, väggar eller trädgård behöver rivas upp.",
     "Metoden är särskilt vanlig i hus med gjutjärnsrör från 1900-talet, där rören rostat och fått avlagringar inifrån. I stället för ett fullt stambyte, som kan ta veckor och kräva att du flyttar ut, tar en relining oftast tre till fem arbetsdagar."]),
@@ -96,6 +99,9 @@ GUIDES = {
   "h1":"Relining eller stambyte? Så väljer du rätt",
   "title":"Relining eller stambyte? Pris, tid och skillnad 2026 | Reliningkoll",
   "desc":"Relining eller stambyte? Vi jämför kostnad, tid, livslängd och ingrepp så att du kan avgöra vilket som passar din fastighet.",
+  "img": foto("relining-arbete",
+    "Två reliningtekniker i varselkläder utför relining av ett avloppsrör i en källare.",
+    "Relining utförs på plats i bostaden och tar oftast bara några&nbsp;få&nbsp;arbetsdagar.", 1600, 900),
   "body": sec("Den viktigaste skillnaden", [
     "Stambyte betyder att de gamla rören rivs ut helt och ersätts med nya. Relining innebär att ett nytt rör byggs inuti det befintliga. Båda ger täta, moderna rör, men de skiljer sig kraftigt i ingrepp, tid och kostnad."]) +
     '<table class="tbl"><thead><tr><th>Aspekt</th><th>Relining</th><th>Stambyte</th></tr></thead><tbody>' +
@@ -154,6 +160,9 @@ GUIDES = {
   "h1":"Strumpmetoden: så fungerar den vanligaste reliningmetoden",
   "title":"Strumpmetoden (CIPP) – så fungerar relining steg för steg | Reliningkoll",
   "desc":"Strumpmetoden, även kallad CIPP, är den vanligaste reliningmetoden. Här är hela förloppet steg för steg och vad du bör kontrollera.",
+  "img": foto("relining-utrustning",
+    "Reliningsutrustning uppställd på ett betonggolv: behållare, slang och pump.",
+    "Foder, harts och utrustning. Fodret impregneras och förs in i det gamla röret.", 1200, 900),
   "body": sec("Vad strumpmetoden är", [
     "Strumpmetoden, internationellt CIPP, innebär att en flexibel slang av glasfiber eller polyester mättad med härdplast trycks in i det gamla röret, blåses upp mot rörväggen och härdas på plats. Resultatet är ett nytt, skarvfritt rör inuti det gamla."]) +
     sec("Förloppet steg för steg", []) + ul([
@@ -172,6 +181,9 @@ GUIDES = {
   "h1":"Relining av gjutjärnsrör: så gör man",
   "title":"Relining av gjutjärnsrör – metod, pris och livslängd | Reliningkoll",
   "desc":"Gjutjärnsrör från 1900-talet rostar inifrån. Här är hur relining av gjutjärns- och betongrör går till och vad det kostar.",
+  "img": foto_pair_block(
+    ("ror-fore","Insidan av ett rostigt gjutjärnsrör.","Före","Gjutjärn som rostat och fått avlagringar inifrån.",1000,750),
+    ("ror-efter","Insidan av ett gjutjärnsrör efter relining.","Efter","Nytt skarvfritt foder invändigt i det gamla röret.",1000,750)),
   "body": sec("Varför gjutjärnsrör behöver åtgärdas", [
     "Äldre gjutjärnsrör rostar inifrån och bygger upp avlagringar som minskar flödet och till slut ger stopp. Relining ger ett nytt, slätt rör inuti det gamla utan att stammen grävs fram eller rivs."]) +
     sec("Så skiljer sig gjutjärn från andra material", []) + ul([
@@ -292,6 +304,7 @@ def build_guides():
         <section style="padding-top:0"><div class="wrap"><div class="prose">
           {g["body"]}
           {g.get("body2","")}
+          {g.get("img","")}
           {check_block}
           <h2>Vanliga frågor</h2>
           <div class="faq">{''.join(f'<details><summary>{esc(q)}</summary><p>{esc(a)}</p></details>' for q,a in faq)}</div>

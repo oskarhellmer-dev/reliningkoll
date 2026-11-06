@@ -152,6 +152,26 @@ FAQ_DEFAULT = [
 def f(msg):  # formaterar callout
     return f'<div class="callout"><p>{msg}</p></div>'
 
+IMG_V = "2"   # bumpa vid varje bildbyte (cache-bust; samma filnamn annars)
+
+def foto(name, alt, caption, w, h, sizes="(max-width:760px) 100vw, 720px", label=None, half=False):
+    """Fotografi bilagt protokollet: hårlinje, webp med jpg-fallback, mono-bildtext."""
+    lab = f'<b>{esc(label)}</b> ' if label else ''
+    cls = 'foto' + (' foto-half' if half else '')
+    if half:
+        sizes = "(max-width:720px) 100vw, 380px"
+    return (f'<figure class="{cls}"><picture>'
+            f'<source type="image/webp" srcset="/bilder/{name}-{w}.webp?v={IMG_V} {w}w, /bilder/{name}-{w//2}.webp?v={IMG_V} {w//2}w" sizes="{sizes}">'
+            f'<img src="/bilder/{name}.jpg?v={IMG_V}" alt="{esc(alt)}" width="{w}" height="{h}" loading="lazy" decoding="async">'
+            f'</picture><figcaption>{lab}{caption}</figcaption></figure>')
+
+def foto_pair(name, alt, label, cap, w, h):
+    return foto(name, alt, cap, w, h, label=label, half=True)
+
+def foto_pair_block(a, b):
+    """a, b = (name, alt, label, cap, w, h)"""
+    return ('<div class="foto-pair">' + foto_pair(*a) + foto_pair(*b) + '</div>')
+
 def logo_ph(name):
     return ''.join(w[0] for w in name.split()[:2]).upper()
 
@@ -174,6 +194,18 @@ def build_home():
     html = head("Relining – pris, metoder och offerter från lokala firmor | Reliningkoll",
         "Jämför relining och avloppsrenovering gratis. Få upp till 3 offerter från granskade reliningfirmor i din kommun. Prisguider, metoder och svar på vanliga frågor.",
         "/", f'<script type="application/ld+json">{schema}</script>\n<script type="application/ld+json">{faq}</script>')
+    foto_arbete = foto("relining-arbete",
+        "Två reliningtekniker i varselkläder utför relining av ett avloppsrör i en källare.",
+        "Så går arbetet till. Rören rengörs, fodret förs in och härdas på plats.", 1600, 900, sizes="100vw")
+    foto_bil = foto("relining-bil",
+        "Servicebil med bakdörrarna öppna och reliningsutrustning i lastutrymmet.",
+        "Lokala firmor kommer till dig. Utrustningen ryms i en vanlig servicebil.", 1600, 900, sizes="100vw")
+    foto_fore = foto("ror-fore",
+        "Insidan av ett rostigt gjutjärnsrör före relining.",
+        "Rost, avlagringar och skrovlig yta.", 1000, 750, label="Före", half=True)
+    foto_efter = foto("ror-efter",
+        "Insidan av ett avloppsrör efter relining, med slätt epoxifoder.",
+        "Skarvfritt epoxifoder, slätt och tätt.", 1000, 750, label="Efter", half=True)
     html += f'''
 <section class="hero"><div class="wrap"><div class="hero-grid">
   <div>
@@ -230,7 +262,15 @@ def build_home():
   </div>
 </div></section>
 
+<section><div class="wrap">{foto_arbete}</div></section>
+
 <section><div class="wrap"><p class="reveal-tag">Relining förnyar rören inifrån &mdash; utan att du behöver riva golv, väggar eller trädgård.</p></div></section>
+
+<section class="bg-card"><div class="wrap">
+  <div class="sec-head rv"><h2>Före och efter</h2>
+    <p>Samma rör, före och efter relining. Insidan förnyas helt &mdash; röret byts inte ut.</p></div>
+  <div class="foto-pair">{foto_fore}{foto_efter}</div>
+</div></section>
 
 <section><div class="wrap">
   <div class="sec-head rv">
@@ -286,6 +326,7 @@ def build_home():
   <div class="sec-head rv"><h2>Relining i din kommun</h2>
     <p>Vi förmedlar firmor i hela landet. Välj din kommun för lokala priser och entreprenörer.</p></div>
   <div class="pills rv" id="city-pills"></div>
+  <div class="s-mt40">{foto_bil}</div>
 </div></section>
 
 <section><div class="wrap narrow">

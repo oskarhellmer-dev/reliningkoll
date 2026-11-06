@@ -49,6 +49,17 @@ Kontrast: brödtext ≥4,5:1, stor text ≥3:1. Verifierat av detektorn.
 
 Markeringsfärg (stämpelblå/platte), `caret-color` stämpelblå, tunn scrollbar i papper/grågrönt, `:focus-visible` 2px stämpelblå med 3px offset, understrykning med `text-underline-offset: .18em`.
 
+## Foto
+
+Fotografier läses som **bilagor till protokollet** — ett foto som fästs på blanketten, inte en säljbild.
+
+- Ram: 1px `--rule-strong`. Ingen rundning. Ligger på `--plate`.
+- Bildtext: Azeret Mono, versal etikett (`Före` / `Efter`) + förklaring i `--ink-soft`, avskild med hårlinje överst.
+- Före/efter: `.foto-pair` lägger två foton sida vid sida, delade av en hårlinje; staplas på smal skärm.
+- Alla bilder: WebP med JPG-fallback, `width`/`height` (ingen CLS), `loading="lazy"`, `decoding="async"`.
+- Inga logotyper, varumärken eller text i bilden. Dokumentär stil (35mm-känsla), inte glossy stock.
+- Byggs med `foto()` / `foto_pair_block()` i `build_core.py`.
+
 ## Vad som inte får återinföras
 
 Gradient-text · kicker/eyebrow ovanför rubrik · `border-left` >1px på kort/callouts · rundade kort med ikon+rubrik+text som sidstruktur · nästlade kort · grädde/beige bakgrund · Inter/Roboto/Space Grotesk · påhittade betyg eller recensioner.

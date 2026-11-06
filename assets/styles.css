@@ -366,6 +366,24 @@ section h2:first-child,section>div>h2{margin-top:0}
   .hero h1{letter-spacing:-0.02em}
 }
 
+/* ---------- foto: fotografier bilagda besiktningsprotokollet ---------- */
+.foto{margin:0;border:1px solid var(--rule-strong);background:var(--plate)}
+.foto picture{display:block}
+.foto img{display:block;width:100%;height:auto;filter:saturate(.95) contrast(1.02)}
+.foto figcaption{font-family:var(--mono);font-size:.72rem;line-height:1.5;letter-spacing:.02em;
+  color:var(--ink-soft);padding:11px 13px;border-top:1px solid var(--rule)}
+.foto figcaption b{color:var(--ink);font-weight:600;letter-spacing:.1em;text-transform:uppercase}
+.foto-wide{margin:0}
+.prose .foto{margin:30px 0}
+.foto-pair{display:grid;grid-template-columns:1fr 1fr;gap:0;margin:30px 0;
+  border:1px solid var(--rule-strong);background:var(--plate)}
+.foto-pair .foto{border:0}
+.foto-pair .foto+.foto{border-left:1px solid var(--rule-strong)}
+@media (max-width:720px){
+  .foto-pair{grid-template-columns:1fr}
+  .foto-pair .foto+.foto{border-left:0;border-top:1px solid var(--rule-strong)}
+}
+
 /* ---------- utility (ersätter inline-stilar, möjliggör strikt CSP) ---------- */
 .s-280w{max-width:280px}.s-pt0{padding-top:0}.s-mt40{margin-top:40px}
 .s-mb24{margin-bottom:24px}.s-w100{width:100%}.s-h2sm{font-size:1.35rem}

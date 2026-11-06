@@ -1,0 +1,9 @@
+# Byggskript och dev-filer ska inte publiceras på Vercel
+*.py
+*.md
+_preview/
+.hermes/
+.impeccable/
+data/
+_headers
+__pycache__/

@@ -13,9 +13,9 @@ if os.path.isdir(PREV):
     shutil.rmtree(PREV)
 os.makedirs(PREV)
 
-SKIP = {"_preview", ".git", "__pycache__", "build_all.py", "build_core.py",
+SKIP = {"_preview", ".git", ".hermes", ".impeccable", "__pycache__", "build_all.py", "build_core.py",
         "build_part1.py", "build_part2.py", "build_scale.py", "build_muni.py", "_check.py",
-        "deploy_preview.py", "_deploy"}
+        "deploy_preview.py", "_deploy", "DESIGN.md", "PRODUCT.md"}
 
 for root, dirs, files in os.walk(ROOT):
     dirs[:] = [d for d in dirs if d not in SKIP]
@@ -29,9 +29,19 @@ for root, dirs, files in os.walk(ROOT):
         shutil.copy2(src, os.path.join(dst_dir, fn))
 
 # prefixa absoluta länkar i HTML
+def fix_srcset(m):
+    items = []
+    for it in m.group(1).split(","):
+        it = it.strip()
+        if it.startswith("/"):
+            it = PREFIX + it
+        items.append(it)
+    return 'srcset="' + ', '.join(items) + '"'
+
 n_html = 0
 for f in glob.glob(PREV + "/**/*.html", recursive=True):
     s = open(f, encoding="utf-8").read()
+    s = re.sub(r'srcset="([^"]*)"', fix_srcset, s)
     s = s.replace('href="/', f'href="{PREFIX}/').replace('src="/', f'src="{PREFIX}/')
     # rätta dubbel-prefix om något redan prefixats
     s = s.replace(f'{PREFIX}{PREFIX}/', f'{PREFIX}/')
