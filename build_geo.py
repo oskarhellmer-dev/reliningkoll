@@ -334,6 +334,9 @@ def build_service_geo():
         alt2 = [TOP_SERVICE[(_ti + k) % len(TOP_SERVICE)] for k in range(1, 11)]
         _sm2 = d.get("period", {}).get("SMÅHUS", {})
         _peak2 = max(_sm2, key=_sm2.get) if _sm2 else None
+        _t2, _n2 = period_table(d)
+        _ptbl2 = (f'<h2>När byggdes husen i {esc(name)}?</h2>' + _t2 + f'<p>{_n2}</p>') if _t2 else ''
+
         links2 = ''.join(f'<a class="pills" href="/rorinspektion/{s}/">{esc(GEO[s]["name"])}</a>' for s in alt2)
         p2 = f"/rorinspektion/{slug}/"
         b2 = f'''<section class="hero"><div class="wrap narrow">
@@ -349,6 +352,7 @@ def build_service_geo():
           <p>{narr(d)}</p>
           <p>{esc(name)} har {fmt(d['totalt'])} bostäder, varav {fmt(d['smahus'])} småhus och {fmt(d['flerbost'])} lägenheter i flerbostadshus. {d['pre1970_andel']} procent av bostäderna byggdes före 1970, och flest småhus tillkom under perioden {PKORT.get(_peak2, '')}.</p>
           <p>{age(d)} Det gör en kamera inspektion särskilt relevant här: den avgör om rören är gjutjärn, hur de mår och vilken åtgärd som är rimlig.</p>
+          {_ptbl2}
           <h2>Riktpriser i {esc(lan)}</h2>
           <table class="tbl" style="margin-bottom:24px"><thead><tr><th>Tjänst</th><th>Riktpris</th></tr></thead><tbody>
             <tr><td>Inspektion villa</td><td>0 – 2 500 kr</td></tr>

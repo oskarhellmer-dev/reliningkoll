@@ -386,6 +386,10 @@ def build_pages():
       <p>Vi behandlar dina uppgifter för att kunna fullgöra den tjänst du begärt, vilket är den rättsliga grunden. Du kan när som helst återkalla din förfrågan och begära att uppgifterna raderas, så länge de inte behövs för bokföring eller andra lagkrav.</p>
       <h2>Barn</h2>
       <p>Tjänsten riktar sig till vuxna fastighetsägare. Vi samlar inte medvetet in uppgifter om barn.</p>
+      <h2>Dataportabilitet och rättelse</h2>
+      <p>Du har rätt att få felaktiga uppgifter rättade och att få ut de uppgifter du lämnat i ett maskinläsbart format. Kontakta oss så hjälper vi dig.</p>
+      <h2>Internationella överföringar</h2>
+      <p>Våra leverantörer kan i begränsad omfattning behandla uppgifter utanför EU. I sådana fall sker det enligt gällande skyddsåtgärder och avtal.</p>
       </div></div></section>'''
     write("/integritetspolicy/index.html", page("Integritetspolicy – så hanterar Reliningkoll dina uppgifter",
       "Så behandlar Reliningkoll dina personuppgifter enligt GDPR. Vilka uppgifter vi samlar in, vem vi delar dem med och vilka rättigheter du har.", "/integritetspolicy/", body,
