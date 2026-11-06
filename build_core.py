@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """Bygger hela reliningkoll.se som statisk sajt."""
-import os, json, html as H, datetime
+import os, json, re, html as H, datetime
 
 ROOT = "/home/clawd/reliningkoll"
 BASE = "https://reliningkoll.se"
@@ -15,6 +15,7 @@ NAV = [("/pris/", "Priser"), ("/guider/", "Guider"), ("/relining/", "Hitta firmo
        ("/for-proffs/", "För proffs")]
 
 def head(title, desc, path, schema="", og="og.png", noindex=False):
+    title = re.sub(r"\s*\|\s*Reliningkoll\s*$", "", title).strip()
     canonical = BASE + path
     robots = '<meta name="robots" content="noindex,follow">' if noindex else '<meta name="robots" content="index,follow,max-image-preview:large">'
     return f'''<!DOCTYPE html>
@@ -78,7 +79,7 @@ FOOT = f'''</main>
         {logo_link()}
         <p class="small" style="max-width:280px">Oberoende jämförelsetjänst för relining, avloppsspolning och rörinspektion. Kostnadsfritt för dig som privatperson.</p>
       </div>
-      <div><h4>Jämför</h4><ul>
+      <div><p class="foot-h">Jämför</p><ul>
         <li><a href="/pris/">Priser &amp; kostnader</a></li>
         <li><a href="/guider/">Guider</a></li>
         <li><a href="/relining/">Relining i din kommun</a></li>
@@ -86,11 +87,11 @@ FOOT = f'''</main>
         <li><a href="/rorinspektion/">Rörinspektion</a></li>
         <li><a href="/offert/">Få offerter gratis</a></li>
       </ul></div>
-      <div><h4>För proffs</h4><ul>
+      <div><p class="foot-h">För proffs</p><ul>
         <li><a href="/for-proffs/">Anslut ditt företag</a></li>
         <li><a href="/foretag/">Anslutna företag</a></li>
       </ul></div>
-      <div><h4>Om tjänsten</h4><ul>
+      <div><p class="foot-h">Om tjänsten</p><ul>
         <li><a href="/om-oss/">Om oss</a></li>
         <li><a href="/integritetspolicy/">Integritetspolicy</a></li>
         <li><a href="/anvandarvillkor/">Användarvillkor</a></li>

@@ -1,0 +1,28 @@
+# Reliningkoll
+
+> Oberoende jämförelsetjänst för relining, avloppsspolning och rörinspektion i Sverige.
+> Besökaren beskriver sitt ärende en gång och matchas med upp till tre granskade lokala
+> entreprenörer. Kostnadsfritt för privatpersoner, ingen bindningstid.
+
+## Om tjänsten
+
+- Tjänst: kostnadsfri offertförmedling för relining, avloppsspolning och rörinspektion.
+- Målgrupp: svenska fastighetsägare, villaägare och bostadsrättsföreningar med äldre avloppsrör.
+- Intäkt: anslutna firmor betalar per förfrågan de accepterar. Besökaren betalar inget.
+- Kontakt: hej@reliningkoll.se
+
+## Viktiga sidor
+
+- [Priser 2026](/pris/): riktpriser för relining, villa, bostadsrätt, per meter, spolning och rörinspektion.
+- [Guider](/guider/): metoder, livslängd, gjutjärnsrör, ROT-avdrag, val av firma och fallgropar.
+- [Relining i din kommun](/relining/): lokalt bostadsbestånd och byggnadsperioder per kommun (källa: SCB).
+- [Avloppsspolning](/avloppsspolning/) och [rörinspektion](/rorinspektion/) per ort.
+- [För proffs](/for-proffs/): för entreprenörer som vill ta emot leads.
+- [Om oss](/om-oss/): hur tjänsten och granskningen fungerar.
+
+## Fakta
+
+- Relining förnyar avloppsrör inifrån utan rivning. Livslängd normalt 40 till 50 år.
+- Hus byggda fram till omkring 1970 har i regel gjutjärnsrör; därefter blev plaströr vanligare.
+- ROT-avdrag ger 30 procent av arbetskostnaden tillbaka i egen villa, tak 50 000 kr per person och år.
+- All kommunstatistik på sajten kommer från SCB:s öppna API. Vi publicerar inga påhittade betyg eller recensioner.

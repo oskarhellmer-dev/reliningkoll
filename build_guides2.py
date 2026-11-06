@@ -86,7 +86,7 @@ G["relining-av-kallare"] = {
 G["relining-av-radhus"] = {
  "h1":"Relining av radhus",
  "title":"Relining av radhus – gemensamma stammar | Reliningkoll",
- "desc":"I radhus delar flera hushåll på avloppssystemet. Här är vad som gäller vid relining, ansvar och kostnad.",
+ "desc":"I radhus delar flera hushåll på avloppssystemet. Här är vad som gäller vid relining av gemensamma stammar, vem som ansvarar och vad det kostar.",
  "body": sec("Radhusets speciella förutsättningar", [
    "I ett radhus löper ofta en gemensam stam under hela längan. Varje hushåll har sina egna grenar, men huvudledningen delas. Det innebär att relining av en del kan kräva samordning med grannarna och att ansvaret regleras i stadgar eller gemensamhetsanläggning."]) +
  sec("Vem ansvarar för vad", []) + ul([
@@ -172,7 +172,7 @@ G["relining-fore-kop-av-hus"] = {
 G["avloppsrens-sjalv"] = {
  "h1":"Rensa avloppet själv – vad som funkar och inte",
  "title":"Rensa avlopp själv – metoder och varningar | Reliningkoll",
- "desc":"Vaskrensare, avloppsrens eller högtryck? Här är vad du kan göra själv vid stopp och vad som kan skada rören.",
+ "desc":"Vaskrensare, avloppsrens eller högtryck? Här är vad du kan göra själv vid stopp i avloppet, vad som kan skada rören och när du bör ringa proffs.",
  "body": sec("Vad som fungerar", []) + ul([
    "Vaskrensare eller rensvajer – bäst vid hår och tvålrester i vattenlåset.",
    "Kokhett vatten i omgångar – löser fett i köket.",
@@ -190,7 +190,7 @@ G["avloppsrens-sjalv"] = {
 G["rut-eller-rot-avdrag"] = {
  "h1":"ROT eller RUT – vad gäller för avloppsarbete?",
  "title":"ROT vs RUT för avlopp och relining | Reliningkoll",
- "desc":"Relining och rörarbete i villa omfattas av ROT-avdraget, inte RUT. Här är skillnaden och vad du får tillbaka.",
+ "desc":"Relining och rörarbete i villa omfattas av ROT-avdraget, inte RUT. Här är skillnaden, taket och räkneexempel för dig som ska relina avlopp.",
  "body": sec("Skillnaden i korthet", [
    "ROT gäller reparation, underhåll och ombyggnad av din bostad, och omfattar rörarbete som relining. RUT gäller hushållsnära tjänster som städning och trädgård. Avloppsarbete hör alltså under ROT."]) +
  '<table class="tbl"><thead><tr><th></th><th>ROT</th><th>RUT</th></tr></thead><tbody>' +
@@ -207,7 +207,7 @@ G["rut-eller-rot-avdrag"] = {
 G["relining-av-huvudledning"] = {
  "h1":"Relining av huvudledning och servisledning",
  "title":"Relining av servisledning och huvudledning | Reliningkoll",
- "desc":"Servisledningen mellan huset och gatan kan också relinas. Här är vad som gäller för ledningar utanför huset.",
+ "desc":"Servisledningen mellan huset och gatan kan också relinas. Här är vad som gäller för ledningar utanför huset, ansvarsfördelning och priser per meter.",
  "body": sec("Vilka ledningar det gäller", [
    "Servisledningen går från huset ut till kommunens förbindelsepunkt, ofta vid tomtgränsen. Den är normalt fastighetsägarens ansvar och kan precis som stammen relinas i stället för att grävas upp."]) +
  sec("Varför relining slår grävning", [

@@ -122,6 +122,27 @@ def build_cities_geo():
             omr2 = f"Förutom {esc(name)} förmedlar vi firmor i {esc(', '.join(areas))}."
         else:
             omr2 = f"Förutom {esc(name)} förmedlar vi firmor i närliggande orter i {esc(lan)}."
+        try:
+            import build_part2 as _P2
+            _cf = [f for f in _P2.FIRMS if f[2].lower() == name.lower()]
+        except Exception:
+            _cf = []
+        if _cf:
+            _relh = f'<h2>Reliningfirmor i {esc(name)}</h2>'
+            _firm = ''.join(f'<a href="/foretag/{sl}/">{esc(nm)}</a>' for sl, nm, _o, _l, _m, _s in _cf)
+        else:
+            _relh = f'<h2>Relaterat för {esc(name)}</h2>'
+            _firm = '<a href="/foretag/">Anslutna firmor</a>'
+        _guides = ('<a href="/guider/vad-ar-relining/">Vad är relining?</a>'
+                   '<a href="/guider/relining-eller-stambyte/">Relining eller stambyte?</a>'
+                   '<a href="/guider/hur-lange-haller-relining/">Hur länge håller relining?</a>'
+                   '<a href="/pris/">Priser 2026</a>'
+                   '<a href="/guider/">Alla guider</a>')
+        _ci = CITY_SET.index(slug)
+        _neighc = [CITY_SET[(_ci + k) % len(CITY_SET)] for k in range(1, 13)]
+        _clinks = ''.join(f'<a href="/relining/{x}/">{esc(GEO[x]["name"])}</a>' for x in _neighc)
+        rel_block = _relh + '<div class="pills">' + _firm + _guides + '</div>'
+        rel_block += '<h2 style="font-size:22px">Relining i fler kommuner</h2><div class="pills rv">' + _clinks + '</div>'
         svc = (f'<h2>Spolning och rörinspektion i {esc(name)}</h2>'
                f'<p>Har du ett stopp eller behöver du inspektera rören? Se '
                f'<a href="/avloppsspolning/{slug}/">avloppsspolning i {esc(name)}</a> och '
@@ -187,6 +208,7 @@ def build_cities_geo():
             <details><summary>Kan jag använda ROT-avdraget i {esc(name)}?</summary><p>Ja, för relining i egen villa. Avdraget är 30 procent av arbetskostnaden, upp till 50 000 kr per person och år.</p></details>
           </div>
           {svc}
+          {rel_block}
           <div class="cta-band" style="margin-top:40px"><h2>Få offerter på relining i {esc(name)}</h2>
             <p>Gratis, utan förpliktelse. Upp till tre lokala firmor.</p>
             <a class="btn btn-primary btn-lg" href="/offert/">Skicka förfrågan</a></div>
@@ -203,7 +225,7 @@ def build_cities_geo():
 def build_service_geo():
     cards = ''.join(f'<a class="pills" href="/avloppsspolning/{s}/">{esc(GEO[s]["name"])}</a>' for s in TOP_SERVICE)
     write("/avloppsspolning/index.html", page("Avloppsspolning – hitta spolfirma i din kommun | Reliningkoll",
-      "Avloppsspolning nära dig. Jämför lokala firmor, priser och vad som gäller vid stopp i avloppet.",
+      "Avloppsspolning nära dig. Jämför lokala spolfirmor, priser och vad som gäller vid stopp i avloppet — och när relining är rätt åtgärd i stället.",
       "/avloppsspolning/",
       f'''<section class="hero"><div class="wrap narrow">
         {crumb_html([("Hem","/"),("Avloppsspolning","/avloppsspolning/")])}
@@ -216,11 +238,11 @@ def build_service_geo():
 
     cards2 = ''.join(f'<a class="pills" href="/rorinspektion/{s}/">{esc(GEO[s]["name"])}</a>' for s in TOP_SERVICE)
     write("/rorinspektion/index.html", page("Rörinspektion – kamera inspektion av avlopp | Reliningkoll",
-      "Rörinspektion med kamera i din kommun. Se rörens skick, pris och lokala firmor.",
+      "Rörinspektion med kamera i din kommun. Se rörens skick innan du beställer åtgärd, jämför lokala firmor och läs vad en inspektion kostar.",
       "/rorinspektion/",
       f'''<section class="hero"><div class="wrap narrow">
         {crumb_html([("Hem","/"),("Rörinspektion","/rorinspektion/")])}
-        <h1 class="h1">Rörinspektion med kamera</h1>
+        <h1 class="h1">Rörinspektion i hela Sverige</h1>
         <p class="lead">En kamera inspektion visar rörens skick innan du beställer åtgärd.</p>
         <div class="hero-cta"><a class="btn btn-primary btn-lg" href="/offert/">Boka inspektion</a>
           <a class="btn btn-ghost btn-lg" href="/pris/rorinspektion/">Se priser</a></div></div></section>
@@ -230,7 +252,8 @@ def build_service_geo():
     for slug in TOP_SERVICE:
         d = GEO[slug]
         name, lan = d["name"], d["lan"]
-        alt = [s for s in TOP_SERVICE if s != slug][:10]
+        _ti = TOP_SERVICE.index(slug)
+        alt = [TOP_SERVICE[(_ti + k) % len(TOP_SERVICE)] for k in range(1, 11)]
         links = ''.join(f'<a class="pills" href="/avloppsspolning/{s}/">{esc(GEO[s]["name"])}</a>' for s in alt)
         sm = d.get("period", {}).get("SMÅHUS", {})
         peak = max(sm, key=sm.get) if sm else None
@@ -272,6 +295,8 @@ def build_service_geo():
           f"Avloppsspolning i {name}? Hitta lokala spolfirmor i {lan}. {d['pre1970_andel']}% av bostäderna byggda före 1970. Priser för stopp i avloppet.",
           p, b, crumb=[("Hem","/"),("Avloppsspolning","/avloppsspolning/"),(name,p)]))
 
+        alt2 = [TOP_SERVICE[(_ti + k) % len(TOP_SERVICE)] for k in range(1, 11)]
+        links2 = ''.join(f'<a class="pills" href="/rorinspektion/{s}/">{esc(GEO[s]["name"])}</a>' for s in alt2)
         p2 = f"/rorinspektion/{slug}/"
         b2 = f'''<section class="hero"><div class="wrap narrow">
           {crumb_html([("Hem","/"),("Rörinspektion","/rorinspektion/"),(name,p2)])}
@@ -293,12 +318,14 @@ def build_service_geo():
           <li>Innan du beställer relining eller stambyte</li><li>Inför köp av äldre hus</li></ul>
           <h2>Relining i {esc(name)}</h2>
           <p>Visar inspektionen att rören är slitna men hela är relining ofta rätt åtgärd. Läs mer om <a href="/relining/{slug}/">relining i {esc(name)}</a>.</p>
+          <h2 style="font-size:22px">Rörinspektion i fler orter</h2>
+          <div class="pills rv">{links2}</div>
           <div class="cta-band" style="margin-top:40px"><h2>Boka rörinspektion i {esc(name)}</h2>
             <p>Kostnadsfri bedömning av lokala firmor i {esc(lan)}.</p>
             <a class="btn btn-primary btn-lg" href="/offert/">Skicka förfrågan</a></div>
         </div></div></section>'''
         write(p2+"index.html", page(f"Rörinspektion {esc(name)} – kamera inspektion av avlopp | Reliningkoll",
-          f"Rörinspektion i {name} med kamera. Hitta lokala firmor i {lan} och se priser för inspektion av avloppsrör.",
+          f"Rörinspektion i {name} med kamera. Hitta lokala firmor i {lan}, se priser och vad inspektionen visar innan du beställer relining.",
           p2, b2, crumb=[("Hem","/"),("Rörinspektion","/rorinspektion/"),(name,p2)]))
 
 if __name__ == "__main__":

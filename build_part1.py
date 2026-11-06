@@ -263,11 +263,18 @@ def build_guides():
       <p>Få upp till tre offerter från lokala reliningfirmor. Gratis och utan förpliktelse.</p>
       <a class="btn btn-primary btn-lg" href="/offert/">Få offerter</a></div></div></section>'''
     write("/guider/index.html", page("Guider om relining och avlopp | Reliningkoll",
-      "Guider om relining: metoder, priser, livslängd, gjutjärnsrör, skorsten och ROT-avdrag. Allt förklarat enkelt.",
+      "Guider om relining och avlopp: metoder, priser, livslängd, gjutjärnsrör, skorsten och ROT-avdrag. Allt förklarat enkelt och utan krångel.",
       "/guider/", body, crumb=[("Hem","/"),("Guider","/guider/")]))
 
+    guide_slugs = list(GUIDES)
     for slug, g in GUIDES.items():
         faq = g.get("faq", [])
+        _i = guide_slugs.index(slug)
+        others = [guide_slugs[(_i + k) % len(guide_slugs)] for k in range(1, 5)]
+        rel = ('<h2>Relaterade guider</h2><div class="pills">'
+               + ''.join(f'<a href="/guider/{x}/">{esc(GUIDES[x]["h1"].split(":")[0].split("?")[0])}</a>' for x in others)
+               + '<a href="/pris/">Priser 2026</a><a href="/relining/">Hitta firmor i din kommun</a>'
+               + '<a href="/guider/">Alla guider</a></div>')
         body = f'''<section class="hero"><div class="wrap narrow">
           {crumb_html([("Hem","/"),("Guider","/guider/"),(g["h1"],f"/guider/{slug}/")])}
           <h1 class="h1">{esc(g["h1"])}</h1>
@@ -279,6 +286,7 @@ def build_guides():
           {g.get("body2","")}
           <h2>Vanliga frågor</h2>
           <div class="faq">{''.join(f'<details><summary>{esc(q)}</summary><p>{esc(a)}</p></details>' for q,a in faq)}</div>
+          {rel}
           <div class="cta-band" style="margin-top:40px"><h2>{esc(g["h1"].split(":")[0].split("?")[0])} för ditt projekt?</h2>
             <p>Beskriv ditt ärende och få upp till tre offerter från lokala firmor. Gratis.</p>
             <a class="btn btn-primary btn-lg" href="/offert/">Få offerter</a></div>

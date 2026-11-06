@@ -317,7 +317,8 @@ section h2:first-child,section>div>h2{margin-top:0}
 .site footer,.site+footer{} /* noop guard */
 .foot-grid{display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:clamp(22px,3.4vw,44px);
   padding:clamp(40px,5vw,64px) 0 34px}
-.foot-grid h4{margin-bottom:1em}
+.foot-grid .foot-h{font-family:var(--mono);font-size:.72rem;font-weight:600;
+  text-transform:uppercase;letter-spacing:.1em;color:var(--ink-soft);margin:0 0 1em}
 .foot-grid ul{list-style:none;margin:0;padding:0}
 .foot-grid li{margin-bottom:11px}
 .foot-grid a{color:var(--ink-soft);text-decoration:none;font-size:.9rem}

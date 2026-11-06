@@ -5,6 +5,10 @@ sys.path.insert(0, "/home/clawd/reliningkoll")
 import build_core as C
 from build_core import page, crumb_html, write, esc, BASE, FORM_EMAIL
 from build_part1 import CITIES, GUIDES, build_guides, logo_ph
+import build_muni as _MUNI
+import build_geo as _GEO
+_NAME2SLUG = {n.lower(): s for s, n, _l, _a in _MUNI.ALL}
+_CITYSET = set(_GEO.CITY_SET)
 
 # ---------------------------------------------------------------- priser
 PRICES = {
@@ -40,7 +44,7 @@ PRICES = {
    "faq":[("Räknas anslutningar per meter?","Nej, anslutningar och golvbrunnar debiteras oftast styckvis utöver meterpriset.")]},
  "relining-villa": {"h1":"Relining av villa: pris och tillvägagångssätt",
    "title":"Relining villa 2026 – kostnad och så går det till | Reliningkoll",
-   "desc":"Vad kostar relining av en villa 2026? Priser, ROT-avdrag och hur arbetet går till i ett vanligt villaavlopp.",
+   "desc":"Vad kostar relining av en villa 2026? Priser för små, medelstora och stora hus, ROT-avdrag och hur arbetet går till i ett vanligt villaavlopp.",
    "rows":[("Liten villa, ca 100 kvm","60 000 – 155 000 kr"),("Medelstor villa, ca 150 kvm","125 000 – 230 000 kr"),
      ("Stor villa, ca 200 kvm","150 000 – 250 000 kr")],
    "sections":[("Villa oftast enklare än BRF",[
@@ -107,6 +111,16 @@ def build_prices():
           <div class="cta-band" style="margin-top:40px"><h2>Vill du veta priset för ditt objekt?</h2>
             <p>Få upp till tre offerter från lokala firmor, gratis och utan förpliktelse.</p>
             <a class="btn btn-primary btn-lg" href="/offert/">Få offerter</a></div>
+          <h2>Relaterade guider och sidor</h2>
+          <div class="pills">
+            <a href="/guider/vad-ar-relining/">Vad är relining?</a>
+            <a href="/guider/relining-eller-stambyte/">Relining eller stambyte?</a>
+            <a href="/guider/rotavdrag-relining/">ROT-avdrag</a>
+            <a href="/guider/valja-reliningfirma/">Välja reliningfirma</a>
+            <a href="/guider/fragor-till-reliningfirma/">Frågor till firman</a>
+            <a href="/relining/">Relining i din kommun</a>
+            <a href="/avloppsspolning/">Avloppsspolning</a>
+          </div>
           <h2 style="font-size:22px">Fler prissidor</h2><div class="grid grid-3">{price_cards()}</div>
         </div></div></section>'''
         write(path + "index.html", page(p["title"], p["desc"], path, body, faq=p["faq"],
@@ -191,10 +205,11 @@ FIRMS = [
 ]
 
 def build_firms():
+    _fslugs = [f[0] for f in FIRMS]
     cards = ''.join(f'''<a class="card rv" href="/foretag/{s}/"><div class="num">{logo_ph(n)}</div>
       <h2>{esc(n)}</h2><p>{esc(ort)} &middot; {esc(met)}</p></a>''' for s,n,ort,lan,met,_ in FIRMS)
     write("/foretag/index.html", page("Anslutna reliningfirmor | Reliningkoll",
-      "Firmor anslutna till Reliningkoll. Alla är granskade för F-skatt, försäkring och erfarenhet av relining.",
+      "Firmor anslutna till Reliningkoll. Alla granskade för F-skatt, ansvarsförsäkring och erfarenhet av relining. Se vilka som arbetar i din kommun.",
       "/foretag/", f'''<section class="hero"><div class="wrap narrow">
         {crumb_html([("Hem","/"),("Företag","/foretag/")])}
         <h1 class="h1">Anslutna reliningfirmor</h1>
@@ -204,6 +219,14 @@ def build_firms():
 
     for slug, name, ort, lan, met, since in FIRMS:
         path = f"/foretag/{slug}/"
+        _fi = _fslugs.index(slug)
+        _neigh = [_fslugs[(_fi + k) % len(_fslugs)] for k in range(1, 4)]
+        _nmap = {f[0]: f[1] for f in FIRMS}
+        neigh_links = ''.join(f'<a href="/foretag/{x}/">{esc(_nmap[x])}</a>' for x in _neigh)
+        _cslug = _NAME2SLUG.get(ort.lower())
+        city_link = (f'<a href="/relining/{_cslug}/">Relining i {esc(ort)}</a>'
+                     if _cslug and _cslug in _CITYSET
+                     else '<a href="/relining/">Se alla kommuner</a>')
         body = f'''<section class="hero"><div class="wrap narrow">
           {crumb_html([("Hem","/"),("Företag","/foretag/"),(name,path)])}
           <h1 class="h1">{esc(name)}<span class="badge">Granskad</span></h1>
@@ -218,6 +241,15 @@ def build_firms():
           <li>Inga betalningsanmärkningar</li><li>Erfarenhet av relining sedan {esc(since)}</li></ul>
           <h2>Tjänster</h2>
           <ul><li>Relining av avloppsstammar</li><li>Rörinspektion med kamera</li><li>Avloppsspolning</li><li>Relining av gjutjärnsrör</li></ul>
+          <h2>Relaterat</h2>
+          <div class="pills">
+            {city_link}
+            <a href="/relining/">Relining i din kommun</a>
+            <a href="/pris/">Priser 2026</a>
+            <a href="/guider/vad-ar-relining/">Vad är relining?</a>
+            <a href="/for-proffs/">Anslut ditt företag</a>
+          </div>
+          <h2>Fler firmor</h2><div class="pills">{neigh_links}</div>
           <div class="cta-band" style="margin-top:40px"><h2>Vill du ha offert från {esc(name)}?</h2>
             <p>Beskriv ditt projekt så matchar vi dig med lokala firmor, inklusive denna.</p>
             <a class="btn btn-primary btn-lg" href="/offert/">Få offerter</a></div>
@@ -339,7 +371,7 @@ def build_pages():
       <p>Vi sparar uppgifterna så länge de behövs för att hantera din förfrågan och därefter enligt gällande lagkrav.</p>
       </div></div></section>'''
     write("/integritetspolicy/index.html", page("Integritetspolicy | Reliningkoll",
-      "Så behandlar Reliningkoll dina personuppgifter enligt GDPR.", "/integritetspolicy/", body,
+      "Så behandlar Reliningkoll dina personuppgifter enligt GDPR. Vilka uppgifter vi samlar in, vem vi delar dem med och vilka rättigheter du har.", "/integritetspolicy/", body,
       crumb=[("Hem","/"),("Integritetspolicy","/integritetspolicy/")]))
 
     # villkor
@@ -356,7 +388,7 @@ def build_pages():
       <p>Frågor om villkoren besvaras på <a href="mailto:{FORM_EMAIL}">{FORM_EMAIL}</a>.</p>
       </div></div></section>'''
     write("/anvandarvillkor/index.html", page("Användarvillkor | Reliningkoll",
-      "Villkor för användning av Reliningkoll.", "/anvandarvillkor/", body,
+      "Villkor för att använda Reliningkoll. Så fungerar förmedlingen, ditt ansvar och vårt när du begär offerter på relining eller avloppsrenovering.", "/anvandarvillkor/", body,
       crumb=[("Hem","/"),("Användarvillkor","/anvandarvillkor/")], noindex=False))
 
     # 404
