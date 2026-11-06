@@ -43,7 +43,7 @@
   --mono:"Azeret Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
   --grot:"Archivo",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
 
-  --measure:66ch;
+  --measure:58ch;
   --pad:clamp(20px,4vw,40px);
   --ease:cubic-bezier(0.16,1,0.3,1);   /* ease-out-expo */
   --r:2px;
@@ -80,7 +80,7 @@ h4{font-size:.72rem;font-family:var(--mono);font-weight:600;text-transform:upper
   letter-spacing:.1em;color:var(--ink-soft);margin-bottom:.9em}
 p{margin:0 0 1.05em;text-wrap:pretty}
 li,dd,td{text-wrap:pretty}
-.lead{font-size:clamp(1.06rem,1.5vw,1.24rem);line-height:1.5;color:var(--ink-soft);max-width:60ch}
+.lead{font-size:clamp(1.06rem,1.5vw,1.24rem);line-height:1.5;color:var(--ink-soft);max-width:54ch}
 .small{font-size:.83rem;line-height:1.5}
 .caption{font-family:var(--mono);font-size:.7rem;font-weight:600;text-transform:uppercase;
   letter-spacing:.14em;color:var(--ink-soft)}
