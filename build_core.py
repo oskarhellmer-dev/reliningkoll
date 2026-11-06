@@ -44,6 +44,8 @@ def head(title, desc, path, schema="", og="og.png", noindex=False):
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="icon" href="/favicon-32.png" sizes="32x32" type="image/png">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="preload" href="/fonts/archivo-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/archivo-latin-ext.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="/assets/styles.css">
 {schema}
 </head>
@@ -108,10 +110,34 @@ FOOT = f'''</main>
 </body>
 </html>'''
 
+_STYLEMAP = {
+ "max-width:280px": "s-280w", "padding-top:0": "s-pt0", "margin-top:40px": "s-mt40",
+ "margin-bottom:24px": "s-mb24", "width:100%": "s-w100", "font-size:22px": "s-h2sm",
+ "color:#5c6b69": "s-kalla", "max-width:640px;margin:0 auto": "s-c640",
+ "margin-top:16px": "s-mt16", "color:var(--muted)": "s-muted", "align-items:start": "s-start",
+ "justify-content:center": "s-center",
+}
+
+def _strip_inline(html):
+    if "<" not in html: return html
+    def repl(m):
+        tag = m.group(0)
+        sm = re.search(r'style="([^"]*)"', tag)
+        if not sm: return tag
+        cls = _STYLEMAP.get(sm.group(1).strip())
+        if not cls: return tag
+        tag2 = re.sub(r'\s*style="[^"]*"', "", tag)
+        if 'class="' in tag2:
+            tag2 = tag2.replace('class="', f'class="{cls} ', 1)
+        else:
+            tag2 = tag2[:-1] + f' class="{cls}">'
+        return tag2
+    return re.sub(r'<[a-zA-Z][^>]*style="[^"]*"[^>]*>', repl, html)
+
 def write(path, html):
     p = os.path.join(ROOT, path.lstrip("/"))
     os.makedirs(os.path.dirname(p), exist_ok=True)
-    open(p, "w", encoding="utf-8").write(html)
+    open(p, "w", encoding="utf-8").write(_strip_inline(html))
     print("  ", path)
 
 FAQ_DEFAULT = [

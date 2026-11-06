@@ -24,6 +24,8 @@
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="icon" href="/favicon-32.png" sizes="32x32" type="image/png">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="preload" href="/fonts/archivo-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/archivo-latin-ext.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="/assets/styles.css">
 <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "WebSite", "@id": "https://reliningkoll.se/#website", "url": "https://reliningkoll.se/", "name": "Reliningkoll", "inLanguage": "sv-SE", "publisher": {"@id": "https://reliningkoll.se/#org"}}, {"@type": "Organization", "@id": "https://reliningkoll.se/#org", "name": "Reliningkoll", "url": "https://reliningkoll.se/", "description": "Oberoende jämförelsetjänst för relining, avloppsspolning och rörinspektion i hela Sverige.", "areaServed": {"@type": "Country", "name": "Sverige"}, "email": "hej@reliningkoll.se"}, {"@type": "Service", "name": "Jämför relining-offerter", "serviceType": "Offertförmedling relining", "provider": {"@id": "https://reliningkoll.se/#org"}, "areaServed": {"@type": "Country", "name": "Sverige"}}]}</script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Vad kostar relining?", "acceptedAnswer": {"@type": "Answer", "text": "För en villa ligger komplett relining oftast mellan 80 000 och 250 000 kr före ROT-avdrag. Per meter rör räknar man vanligen 800 till 1 500 kr. Exakt pris beror på rörlängd, material och åtkomst."}}, {"@type": "Question", "name": "Är offerterna verkligen gratis?", "acceptedAnswer": {"@type": "Answer", "text": "Ja. Tjänsten är kostnadsfri för dig som privatperson och du har ingen skyldighet att anlita någon av firmorna. Företagen betalar en avgift per förfrågan de väljer att ta del av."}}, {"@type": "Question", "name": "Hur många företag kontaktar mig?", "acceptedAnswer": {"@type": "Answer", "text": "Vi matchar dig med upp till tre lokala entreprenörer som arbetar i din kommun. Du jämför deras offerter och väljer själv om du vill gå vidare."}}, {"@type": "Question", "name": "Kan jag använda ROT-avdraget på relining?", "acceptedAnswer": {"@type": "Answer", "text": "Ja. Arbetskostnaden för relining i egen villa är ROT-berättigad. Avdraget är 30 procent av arbetskostnaden, med ett tak på 50 000 kr per person och år."}}, {"@type": "Question", "name": "Hur länge håller relining?", "acceptedAnswer": {"@type": "Answer", "text": "En korrekt utförd relining håller normalt 40 till 50 år. Livslängden beror på metod, rörmaterial och att installationen görs enligt branschregler."}}, {"@type": "Question", "name": "Vem betalar vid relining i en bostadsrättsförening?", "acceptedAnswer": {"@type": "Answer", "text": "Vid relining av stammarna betalar föreningen normalt hela arbetet ur sitt underhållsansvar. Du som äger lägenheten svarar för återställande av ytskikt i ditt eget badrum."}}]}</script>
@@ -78,7 +80,7 @@
         <input id="cf-tel" name="telefon" type="tel" placeholder="07x xxx xx xx" required></div>
       <div class="field"><label for="cf-mail">E-post</label>
         <input id="cf-mail" name="epost" type="email" placeholder="namn@exempel.se" required></div>
-      <button class="btn btn-dark btn-lg" type="submit" style="width:100%">Få mina offerter</button>
+      <button class="s-w100 btn btn-dark btn-lg" type="submit">Få mina offerter</button>
       <p class="form-note">Gratis och utan förpliktelse. Vi delar aldrig dina uppgifter med fler än 3 firmor.</p>
       <p class="form-msg" role="status" aria-live="polite"></p>
     </form>
@@ -124,7 +126,7 @@
 <section class="bg-card"><div class="wrap">
   <div class="sec-head rv"><h2>Vad kostar relining?</h2>
     <p>Riktpriser för 2026. Räkna alltid hem en individuell offert, men det här ger dig ett hum.</p></div>
-  <div class="grid grid-2" style="align-items:start">
+  <div class="s-start grid grid-2">
     <table class="tbl rv"><thead><tr><th>Objekt</th><th>Riktpris</th></tr></thead><tbody>
       <tr><td>Villa, komplett system</td><td>80 000 – 250 000 kr</td></tr>
       <tr><td>Lägenhet, per stam</td><td>50 000 – 120 000 kr</td></tr>
@@ -133,8 +135,8 @@
       <tr><td>Avloppsspolning</td><td>1 500 – 4 500 kr</td></tr>
     </tbody></table>
     <div class="rv"><div class="callout"><p>Priserna är riktpriser före ROT-avdrag. Villaarbeten är ROT-berättigade, vilket ger 30 % av arbetskostnaden tillbaka, upp till 50 000 kr per person och år.</p></div>
-      <p class="body" style="color:var(--muted)">Vill du se hur priset byggs upp? Läs hela prisguiden med kostnad per meter, villa och bostadsrätt.</p>
-      <p style="margin-top:16px"><a class="btn btn-dark" href="/pris/">Öppna prisguiden</a></p></div>
+      <p class="s-muted body">Vill du se hur priset byggs upp? Läs hela prisguiden med kostnad per meter, villa och bostadsrätt.</p>
+      <p class="s-mt16"><a class="btn btn-dark" href="/pris/">Öppna prisguiden</a></p></div>
   </div>
 </div></section>
 
@@ -173,7 +175,7 @@
     <div class="foot-grid">
       <div>
         <a class="logo" href="/" aria-label="Reliningkoll startsida"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 2.5c3.6 4.1 6 7.5 6 10.6A6 6 0 0 1 6 13.1c0-3.1 2.4-6.5 6-10.6Z" fill="#0f6f67"/><path d="M9 13.4a3 3 0 0 0 3 3" stroke="#eaf5f3" stroke-width="1.6" stroke-linecap="round"/></svg>Relining<b>koll</b></a>
-        <p class="small" style="max-width:280px">Oberoende jämförelsetjänst för relining, avloppsspolning och rörinspektion. Kostnadsfritt för dig som privatperson.</p>
+        <p class="s-280w small">Oberoende jämförelsetjänst för relining, avloppsspolning och rörinspektion. Kostnadsfritt för dig som privatperson.</p>
       </div>
       <div><p class="foot-h">Jämför</p><ul>
         <li><a href="/pris/">Priser &amp; kostnader</a></li>

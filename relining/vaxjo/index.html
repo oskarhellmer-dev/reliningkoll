@@ -24,6 +24,8 @@
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="icon" href="/favicon-32.png" sizes="32x32" type="image/png">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="preload" href="/fonts/archivo-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/archivo-latin-ext.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="/assets/styles.css">
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Hur många hus i Växjö har gjutjärnsrör?", "acceptedAnswer": {"@type": "Answer", "text": "5176 småhus byggdes före 1950 och 47% av bostäderna före 1970."}}, {"@type": "Question", "name": "Vad kostar relining i Växjö?", "acceptedAnswer": {"@type": "Answer", "text": "För en villa ligger priset oftast mellan 80 000 och 250 000 kr före ROT-avdrag."}}]}</script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Hem", "item": "https://reliningkoll.se/"}, {"@type": "ListItem", "position": 2, "name": "Relining", "item": "https://reliningkoll.se/relining/"}, {"@type": "ListItem", "position": 3, "name": "Växjö", "item": "https://reliningkoll.se/relining/vaxjo/"}]}</script>
@@ -51,19 +53,19 @@
           <div class="hero-cta"><a class="btn btn-primary btn-lg" href="/offert/">Få 3 offerter i Växjö</a>
             <a class="btn btn-ghost btn-lg" href="/pris/">Se priser</a></div>
         </div></section>
-        <section style="padding-top:0"><div class="wrap"><div class="prose">
+        <section class="s-pt0"><div class="wrap"><div class="prose">
           <h2>Bostadsbeståndet i Växjö</h2>
           <p>Växjö har en blandning av småhus och flerbostadshus: 19 884 småhus och 24 188 lägenheter i flerbostadshus. Både villaägare och bostadsrättsföreningar har anledning att se över sina rör.</p>
-          <table class="tbl" style="margin-bottom:24px"><thead><tr><th>Bostadstyp</th><th>Antal</th><th>Andel</th></tr></thead><tbody>
+          <table class="s-mb24 tbl"><thead><tr><th>Bostadstyp</th><th>Antal</th><th>Andel</th></tr></thead><tbody>
             <tr><td>Småhus</td><td>19 884</td><td>45 %</td></tr>
             <tr><td>Lägenheter i flerbostadshus</td><td>24 188</td><td>55 %</td></tr>
             <tr><td><strong>Totalt</strong></td><td><strong>44 072</strong></td><td>100 %</td></tr>
             <tr><td>Varav småhus byggda före 1950</td><td>5 176</td><td></td></tr>
             <tr><td>Varav byggda före 1970</td><td></td><td>47 %</td></tr>
           </tbody></table>
-          <p class="small" style="color:#5c6b69">Källa: SCB, bostadsbestånd per kommun 2024.</p>
+          <p class="s-kalla small">Källa: SCB, bostadsbestånd per kommun 2024.</p>
           <h2>När byggdes husen i Växjö?</h2>
-          <table class="tbl" style="margin-bottom:24px"><thead><tr><th>Byggnadsperiod</th><th>Småhus</th><th>Lägenheter i flerbostadshus</th></tr></thead><tbody><tr><td>före 1930</td><td>3 174</td><td>1 658</td></tr><tr><td>1931–1940</td><td>989</td><td>458</td></tr><tr><td>1941–1950</td><td>1 013</td><td>1 296</td></tr><tr><td>1951–1960</td><td>1 425</td><td>2 080</td></tr><tr><td>1961–1970</td><td>3 003</td><td>5 539</td></tr><tr><td>1971–1980</td><td>4 467</td><td>1 589</td></tr><tr><td>1981–1990</td><td>1 715</td><td>2 121</td></tr><tr><td>1991–2000</td><td>699</td><td>1 646</td></tr><tr><td>2001–2010</td><td>1 584</td><td>1 674</td></tr><tr><td>2011–2020</td><td>1 439</td><td>3 287</td></tr><tr><td>2021 och senare</td><td>333</td><td>2 840</td></tr><tr><td><strong>Totalt</strong></td><td><strong>19 884</strong></td><td><strong>24 188</strong></td></tr></tbody></table><p class="small" style="color:#5c6b69">Källa: SCB, bostadsbestånd per kommun och byggnadsperiod 2024.</p>
+          <table class="s-mb24 tbl"><thead><tr><th>Byggnadsperiod</th><th>Småhus</th><th>Lägenheter i flerbostadshus</th></tr></thead><tbody><tr><td>före 1930</td><td>3 174</td><td>1 658</td></tr><tr><td>1931–1940</td><td>989</td><td>458</td></tr><tr><td>1941–1950</td><td>1 013</td><td>1 296</td></tr><tr><td>1951–1960</td><td>1 425</td><td>2 080</td></tr><tr><td>1961–1970</td><td>3 003</td><td>5 539</td></tr><tr><td>1971–1980</td><td>4 467</td><td>1 589</td></tr><tr><td>1981–1990</td><td>1 715</td><td>2 121</td></tr><tr><td>1991–2000</td><td>699</td><td>1 646</td></tr><tr><td>2001–2010</td><td>1 584</td><td>1 674</td></tr><tr><td>2011–2020</td><td>1 439</td><td>3 287</td></tr><tr><td>2021 och senare</td><td>333</td><td>2 840</td></tr><tr><td><strong>Totalt</strong></td><td><strong>19 884</strong></td><td><strong>24 188</strong></td></tr></tbody></table><p class="s-kalla small">Källa: SCB, bostadsbestånd per kommun och byggnadsperiod 2024.</p>
           <p>Flest småhus i Växjö byggdes under perioden 1971–1980, nämligen 4 467 stycken. De äldsta småhusen härrör från tiden före 1930. Rör läggs i samband med att huset byggs, så byggnadsperioderna berättar indirekt vilka rör kommunens hus har. Hus byggda fram till 1970 har i regel gjutjärnsrör; därefter blev plaströr vanligare.</p>
           <h2>Vad det betyder för avloppet i Växjö</h2>
           <p>I Växjö finns 5 176 småhus byggda före 1950, och totalt byggdes 47 procent av alla bostäder före 1970. Många av dem har gjutjärnsrör som närmar sig eller har passerat sin tekniska livslängd.</p>
@@ -83,8 +85,8 @@
             <details><summary>Kan jag använda ROT-avdraget i Växjö?</summary><p>Ja, för relining i egen villa. Avdraget är 30 procent av arbetskostnaden, upp till 50 000 kr per person och år.</p></details>
           </div>
           <h2>Spolning och rörinspektion i Växjö</h2><p>Har du ett stopp eller behöver du inspektera rören? Se <a href="/avloppsspolning/vaxjo/">avloppsspolning i Växjö</a> och <a href="/rorinspektion/vaxjo/">rörinspektion i Växjö</a>.</p>
-          <h2>Reliningfirmor i Växjö</h2><div class="pills"><a href="/foretag/vaxjo-rorrenovering/">Växjö Rörrenovering</a><a href="/guider/vad-ar-relining/">Vad är relining?</a><a href="/guider/relining-eller-stambyte/">Relining eller stambyte?</a><a href="/guider/hur-lange-haller-relining/">Hur länge håller relining?</a><a href="/pris/">Priser 2026</a><a href="/guider/">Alla guider</a></div><h2 style="font-size:22px">Relining i fler kommuner</h2><div class="pills rv"><a href="/relining/sodertalje/">Södertälje</a><a href="/relining/solna/">Solna</a><a href="/relining/haninge/">Haninge</a><a href="/relining/kristianstad/">Kristianstad</a><a href="/relining/jarfalla/">Järfälla</a><a href="/relining/lulea/">Luleå</a><a href="/relining/botkyrka/">Botkyrka</a><a href="/relining/skelleftea/">Skellefteå</a><a href="/relining/kalmar/">Kalmar</a><a href="/relining/kungsbacka/">Kungsbacka</a><a href="/relining/ostersund/">Östersund</a><a href="/relining/taby/">Täby</a></div>
-          <div class="cta-band" style="margin-top:40px"><h2>Få offerter på relining i Växjö</h2>
+          <h2>Reliningfirmor i Växjö</h2><div class="pills"><a href="/foretag/vaxjo-rorrenovering/">Växjö Rörrenovering</a><a href="/guider/vad-ar-relining/">Vad är relining?</a><a href="/guider/relining-eller-stambyte/">Relining eller stambyte?</a><a href="/guider/hur-lange-haller-relining/">Hur länge håller relining?</a><a href="/pris/">Priser 2026</a><a href="/guider/">Alla guider</a></div><h2 class="s-h2sm">Relining i fler kommuner</h2><div class="pills rv"><a href="/relining/sodertalje/">Södertälje</a><a href="/relining/solna/">Solna</a><a href="/relining/haninge/">Haninge</a><a href="/relining/kristianstad/">Kristianstad</a><a href="/relining/jarfalla/">Järfälla</a><a href="/relining/lulea/">Luleå</a><a href="/relining/botkyrka/">Botkyrka</a><a href="/relining/skelleftea/">Skellefteå</a><a href="/relining/kalmar/">Kalmar</a><a href="/relining/kungsbacka/">Kungsbacka</a><a href="/relining/ostersund/">Östersund</a><a href="/relining/taby/">Täby</a></div>
+          <div class="s-mt40 cta-band"><h2>Få offerter på relining i Växjö</h2>
             <p>Gratis, utan förpliktelse. Upp till tre lokala firmor.</p>
             <a class="btn btn-primary btn-lg" href="/offert/">Skicka förfrågan</a></div>
         </div></div></section></main>
@@ -93,7 +95,7 @@
     <div class="foot-grid">
       <div>
         <a class="logo" href="/" aria-label="Reliningkoll startsida"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 2.5c3.6 4.1 6 7.5 6 10.6A6 6 0 0 1 6 13.1c0-3.1 2.4-6.5 6-10.6Z" fill="#0f6f67"/><path d="M9 13.4a3 3 0 0 0 3 3" stroke="#eaf5f3" stroke-width="1.6" stroke-linecap="round"/></svg>Relining<b>koll</b></a>
-        <p class="small" style="max-width:280px">Oberoende jämförelsetjänst för relining, avloppsspolning och rörinspektion. Kostnadsfritt för dig som privatperson.</p>
+        <p class="s-280w small">Oberoende jämförelsetjänst för relining, avloppsspolning och rörinspektion. Kostnadsfritt för dig som privatperson.</p>
       </div>
       <div><p class="foot-h">Jämför</p><ul>
         <li><a href="/pris/">Priser &amp; kostnader</a></li>

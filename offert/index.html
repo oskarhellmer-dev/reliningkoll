@@ -24,6 +24,8 @@
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="icon" href="/favicon-32.png" sizes="32x32" type="image/png">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="preload" href="/fonts/archivo-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/archivo-latin-ext.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="/assets/styles.css">
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Hem", "item": "https://reliningkoll.se/"}, {"@type": "ListItem", "position": 2, "name": "Få offerter", "item": "https://reliningkoll.se/offert/"}]}</script>
 
@@ -47,7 +49,7 @@
       <div class="crumb"><a href="/">Hem</a> / <span>Få offerter</span></div>
       <h1 class="h1">Få offerter på relining</h1>
       <p class="lead">Gratis, upp till tre offerter, tar under en minut. Vi matchar dig med lokala firmor i din kommun.</p></div></section>
-      <section style="padding-top:0"><div class="wrap narrow"><div class="quote-card" style="max-width:640px;margin:0 auto">
+      <section class="s-pt0"><div class="wrap narrow"><div class="s-c640 quote-card">
       <form data-lead action="https://formsubmit.co/hej@reliningkoll.se" method="POST">
         <input type="hidden" name="_subject" value="Ny reliningförfrågan">
         <input type="hidden" name="_captcha" value="false">
@@ -70,11 +72,11 @@
           <option>Om 3 till 6 månader</option><option>Bara prisuppgift just nu</option></select></div>
         <div class="field"><label for="o-med">Vill du beskriva något mer? (frivilligt)</label>
           <textarea id="o-med" name="meddelande" rows="3" placeholder="T.ex. återkommande stopp, uppmätt rörlängd, tidigare inspektion"></textarea></div>
-        <button class="btn btn-dark btn-lg" type="submit" style="width:100%">Skicka förfrågan</button>
+        <button class="s-w100 btn btn-dark btn-lg" type="submit">Skicka förfrågan</button>
         <p class="form-note">Gratis och utan förpliktelse. Dina uppgifter delas med upp till tre firmor i ditt område.</p>
         <p class="form-msg" role="status" aria-live="polite"></p>
       </form></div>
-      <div class="prose" style="margin-top:40px"><h2>Så hanterar vi din förfrågan</h2>
+      <div class="s-mt40 prose"><h2>Så hanterar vi din förfrågan</h2>
         <ol><li>Din förfrågan granskas manuellt så att den är seriös och komplett.</li>
         <li>Vi skickar den till upp till tre granskade firmor som arbetar i din kommun.</li>
         <li>Du kontaktas av firmorna och jämför offerter i lugn och ro.</li></ol>
@@ -85,7 +87,7 @@
     <div class="foot-grid">
       <div>
         <a class="logo" href="/" aria-label="Reliningkoll startsida"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 2.5c3.6 4.1 6 7.5 6 10.6A6 6 0 0 1 6 13.1c0-3.1 2.4-6.5 6-10.6Z" fill="#0f6f67"/><path d="M9 13.4a3 3 0 0 0 3 3" stroke="#eaf5f3" stroke-width="1.6" stroke-linecap="round"/></svg>Relining<b>koll</b></a>
-        <p class="small" style="max-width:280px">Oberoende jämförelsetjänst för relining, avloppsspolning och rörinspektion. Kostnadsfritt för dig som privatperson.</p>
+        <p class="s-280w small">Oberoende jämförelsetjänst för relining, avloppsspolning och rörinspektion. Kostnadsfritt för dig som privatperson.</p>
       </div>
       <div><p class="foot-h">Jämför</p><ul>
         <li><a href="/pris/">Priser &amp; kostnader</a></li>
