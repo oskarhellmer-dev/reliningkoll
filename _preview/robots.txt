@@ -1,0 +1,15 @@
+User-agent: *
+Allow: /
+
+# AI-crawlers tillåtna med samma regler.
+User-agent: GPTBot
+User-agent: ChatGPT-User
+User-agent: ClaudeBot
+User-agent: PerplexityBot
+User-agent: Google-Extended
+User-agent: Applebot-Extended
+User-agent: Meta-ExternalAgent
+User-agent: cohere-ai
+Allow: /
+
+Sitemap: https://oskarhellmer-dev.github.io/reliningkoll/sitemap.xml
