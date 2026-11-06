@@ -150,18 +150,18 @@ def build_home():
     html += f'''
 <section class="hero"><div class="wrap"><div class="hero-grid">
   <div>
-    <span class="caption">Jämför relining i hela Sverige</span>
-    <h1 class="h1">Få upp till 3 offerter på relining från lokala firmor</h1>
+    <h1 class="h1">Få upp till tre offerter på <b>relining</b> från lokala firmor</h1>
     <p class="lead">Gratis, utan förpliktelse. Vi matchar din villa, bostadsrätt eller fastighet med kvalitetsgranskade entreprenörer i din kommun så att du kan jämföra pris och metod på riktigt.</p>
     <div class="hero-cta">
       <a class="btn btn-primary btn-lg" href="/offert/">Få 3 offerter gratis</a>
       <a class="btn btn-ghost btn-lg" href="/pris/">Se priser först</a>
     </div>
     <div class="trust">
-      <span><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M20 6 9 17l-5-5" stroke="#1f7a4d" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>Granskade entreprenörer</span>
-      <span><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M20 6 9 17l-5-5" stroke="#1f7a4d" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>Kostnadsfritt</span>
-      <span><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M20 6 9 17l-5-5" stroke="#1f7a4d" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>Ingen bindningstid</span>
+      <span><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M20 6 9 17l-5-5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>Granskade entreprenörer</span>
+      <span><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M20 6 9 17l-5-5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>Kostnadsfritt</span>
+      <span><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M20 6 9 17l-5-5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>Ingen bindningstid</span>
     </div>
+    <div class="hero-stamp"><span class="stamp">Gratis för dig &middot; ingen bindningstid</span></div>
   </div>
   <div class="quote-card">
     <h2>Berätta om ditt projekt</h2>
@@ -190,7 +190,7 @@ def build_home():
 </div></div></section>
 
 <section class="bg-card"><div class="wrap">
-  <div class="sec-head rv"><span class="caption">Så fungerar det</span>
+  <div class="sec-head rv">
     <h2>Från förfrågan till färdig offert</h2>
     <p>Du behöver bara beskriva ditt projekt en gång. Resten sköter vi.</p></div>
   <div class="steps">
@@ -203,10 +203,10 @@ def build_home():
   </div>
 </div></section>
 
-<section><div class="wrap"><div class="reveal-tag rv" data-text="Relining förnyar rören inifrån, utan att du behöver riva golv, väggar eller trädgård."></div></div></section>
+<section><div class="wrap"><p class="reveal-tag">Relining förnyar rören inifrån &mdash; utan att du behöver riva golv, väggar eller trädgård.</p></div></section>
 
 <section><div class="wrap">
-  <div class="sec-head rv"><span class="caption">Tjänster</span>
+  <div class="sec-head rv">
     <h2>Det här hjälper vi dig med</h2>
     <p>Allt inom invändig rörrenovering. Välj det som passar ditt ärende.</p></div>
   <div class="grid grid-3">
@@ -226,7 +226,7 @@ def build_home():
 </div></section>
 
 <section class="bg-card"><div class="wrap">
-  <div class="sec-head rv"><span class="caption">Priser</span><h2>Vad kostar relining?</h2>
+  <div class="sec-head rv"><h2>Vad kostar relining?</h2>
     <p>Riktpriser för 2026. Räkna alltid hem en individuell offert, men det här ger dig ett hum.</p></div>
   <div class="grid grid-2" style="align-items:start">
     <table class="tbl rv"><thead><tr><th>Objekt</th><th>Riktpris</th></tr></thead><tbody>
@@ -243,7 +243,7 @@ def build_home():
 </div></section>
 
 <section><div class="wrap">
-  <div class="sec-head rv"><span class="caption">Guider</span><h2>Lär dig innan du beställer</h2>
+  <div class="sec-head rv"><h2>Lär dig innan du beställer</h2>
     <p>Metoder, kostnader och fallgropar, förklarat utan krångel.</p></div>
   <div class="grid grid-3">
     <a class="card rv" href="/guider/vad-ar-relining/"><h3>Vad är relining?</h3><p>Metoden, hur den går till och när den passar.</p></a>
@@ -256,7 +256,7 @@ def build_home():
 </div></section>
 
 <section class="bg-card"><div class="wrap">
-  <div class="sec-head rv"><span class="caption">Hitta lokalt</span><h2>Relining i din kommun</h2>
+  <div class="sec-head rv"><h2>Relining i din kommun</h2>
     <p>Vi förmedlar firmor i hela landet. Välj din kommun för lokala priser och entreprenörer.</p></div>
   <div class="pills rv" id="city-pills"></div>
 </div></section>

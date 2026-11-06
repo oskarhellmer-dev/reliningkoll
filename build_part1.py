@@ -251,7 +251,7 @@ GUIDES = {
 
 def build_guides():
     cards = ''.join(
-      f'<a class="card rv" href="/guider/{slug}/"><h3>{esc(g["h1"].split(":")[0].split("?")[0])}</h3><p>{esc(g["desc"][:110])}…</p></a>'
+      f'<a class="card rv" href="/guider/{slug}/"><h2>{esc(g["h1"].split(":")[0].split("?")[0])}</h2><p>{esc(g["desc"][:110])}…</p></a>'
       for slug,g in GUIDES.items())
     body = f'''<section class="hero"><div class="wrap narrow">
       {crumb_html([("Hem","/"),("Guider","/guider/")])}

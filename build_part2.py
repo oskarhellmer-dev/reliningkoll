@@ -192,7 +192,7 @@ FIRMS = [
 
 def build_firms():
     cards = ''.join(f'''<a class="card rv" href="/foretag/{s}/"><div class="num">{logo_ph(n)}</div>
-      <h3>{esc(n)}</h3><p>{esc(ort)} &middot; {esc(met)}</p></a>''' for s,n,ort,lan,met,_ in FIRMS)
+      <h2>{esc(n)}</h2><p>{esc(ort)} &middot; {esc(met)}</p></a>''' for s,n,ort,lan,met,_ in FIRMS)
     write("/foretag/index.html", page("Anslutna reliningfirmor | Reliningkoll",
       "Firmor anslutna till Reliningkoll. Alla är granskade för F-skatt, försäkring och erfarenhet av relining.",
       "/foretag/", f'''<section class="hero"><div class="wrap narrow">
@@ -281,7 +281,7 @@ def build_pages():
       <div class="hero-cta"><a class="btn btn-primary btn-lg" href="mailto:{FORM_EMAIL}?subject=Anslut%20mitt%20företag">Anslut ditt företag</a>
         <a class="btn btn-ghost btn-lg" href="/foretag/">Se anslutna företag</a></div></div></section>
       <section class="bg-card"><div class="wrap">
-        <div class="sec-head rv"><span class="caption">Fördelar</span><h2>Varför ansluta sig?</h2></div>
+        <div class="sec-head rv"><h2>Varför ansluta sig?</h2></div>
         <div class="grid grid-3">
           <div class="card rv"><div class="num">1</div><h3>Granskade leads</h3><p>Varje förfrågan kontrolleras manuellt och innehåller fastighetstyp, omfattning och tidsplan. Inga köpta listor.</p></div>
           <div class="card rv"><div class="num">2</div><h3>Direkt i inkorgen</h3><p>Nya leads skickas till dig och du väljer själv vilka du vill ta del av. Acceptera eller hoppa över med ett klick.</p></div>
