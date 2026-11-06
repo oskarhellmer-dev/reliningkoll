@@ -144,11 +144,14 @@ def build_cities_geo():
         _clinks = ''.join(f'<a href="/relining/{x}/">{esc(GEO[x]["name"])}</a>' for x in _neighc)
         rel_block = _relh + '<div class="pills">' + _firm + _guides + '</div>'
         rel_block += '<h2 style="font-size:22px">Relining i fler kommuner</h2><div class="pills rv">' + _clinks + '</div>'
-        svc = (f'<h2>Spolning och rörinspektion i {esc(name)}</h2>'
-               f'<p>Har du ett stopp eller behöver du inspektera rören? Se '
-               f'<a href="/avloppsspolning/{slug}/">avloppsspolning i {esc(name)}</a> och '
-               f'<a href="/rorinspektion/{slug}/">rörinspektion i {esc(name)}</a>.</p>'
-               ) if slug in TOP_SERVICE else ""
+        svc = ((f'<h2>Spolning och rörinspektion i {esc(name)}</h2>'
+                f'<p>Har du ett stopp eller behöver du inspektera rören? Se '
+                f'<a href="/avloppsspolning/{slug}/">avloppsspolning i {esc(name)}</a> och '
+                f'<a href="/rorinspektion/">rörinspektion med kamera</a>.</p>')
+               if slug in TOP_SERVICE else
+               '<h2>Spolning och rörinspektion</h2><p>Har du ett stopp eller behöver du '
+               'inspektera rören? Se <a href="/avloppsspolning/">avloppsspolning</a> och '
+               '<a href="/rorinspektion/">rörinspektion med kamera</a>.</p>')
 
         # extra sektion beroende pa bestand (ger olika sidstruktur)
         if d["smahus_andel"] <= 25:
@@ -254,7 +257,11 @@ def build_service_geo():
         <section><div class="wrap"><div class="pills rv">{cards}</div></div></section>''',
       crumb=[("Hem","/"),("Avloppsspolning","/avloppsspolning/")]))
 
-    cards2 = ''.join(f'<a class="pills" href="/rorinspektion/{s}/">{esc(GEO[s]["name"])}</a>' for s in TOP_SERVICE)
+    cards2 = ('<a class="pills" href="/pris/rorinspektion/">Pris rörinspektion</a>'
+              '<a class="pills" href="/guider/tecken-pa-att-ror-behover-byta/">Tecken på slitna rör</a>'
+              '<a class="pills" href="/guider/vad-ar-relining/">Vad är relining?</a>'
+              '<a class="pills" href="/relining/">Relining i din kommun</a>'
+              '<a class="pills" href="/offert/">Boka inspektion</a>')
     write("/rorinspektion/index.html", page("Rörinspektion – kamera inspektion av avlopp | Reliningkoll",
       "Rörinspektion med kamera i din kommun. Se rörens skick innan du beställer åtgärd, jämför lokala firmor och läs vad en inspektion kostar.",
       "/rorinspektion/",
@@ -331,48 +338,6 @@ def build_service_geo():
           f"Avloppsspolning i {name}? Hitta lokala spolfirmor i {lan}. {d['pre1970_andel']}% av bostäderna byggda före 1970. Priser för stopp i avloppet.",
           p, b, crumb=[("Hem","/"),("Avloppsspolning","/avloppsspolning/"),(name,p)]))
 
-        alt2 = [TOP_SERVICE[(_ti + k) % len(TOP_SERVICE)] for k in range(1, 11)]
-        _sm2 = d.get("period", {}).get("SMÅHUS", {})
-        _peak2 = max(_sm2, key=_sm2.get) if _sm2 else None
-        _t2, _n2 = period_table(d)
-        _ptbl2 = (f'<h2>När byggdes husen i {esc(name)}?</h2>' + _t2 + f'<p>{_n2}</p>') if _t2 else ''
-
-        links2 = ''.join(f'<a class="pills" href="/rorinspektion/{s}/">{esc(GEO[s]["name"])}</a>' for s in alt2)
-        p2 = f"/rorinspektion/{slug}/"
-        b2 = f'''<section class="hero"><div class="wrap narrow">
-          {crumb_html([("Hem","/"),("Rörinspektion","/rorinspektion/"),(name,p2)])}
-          <h1 class="h1">Rörinspektion i {esc(name)}</h1>
-          <p class="lead">Beställ kamera inspektion av avloppsrör i {esc(name)}. Vi förmedlar lokala firmor i {esc(lan)} som dokumenterar rörens skick.</p>
-          <div class="hero-cta"><a class="btn btn-primary btn-lg" href="/offert/">Boka inspektion</a>
-            <a class="btn btn-ghost btn-lg" href="/pris/rorinspektion/">Se priser</a></div></div></section>
-        <section style="padding-top:0"><div class="wrap"><div class="prose">
-          <h2>Vad en rörinspektion visar</h2>
-          <p>Med en kamera inspekteras rören inifrån i {esc(name)}. Du ser rörens skick, dimension, eventuella sprickor, rötter och avlagringar. I en kommun där {d['pre1970_andel']} procent av bostäderna byggdes före 1970 är det särskilt relevant att veta om rören är gjutjärn och hur de mår. Inspektionen är grunden för varje seriös offert.</p>
-          <h2>Bostadsbeståndet i {esc(name)}</h2>
-          <p>{narr(d)}</p>
-          <p>{esc(name)} har {fmt(d['totalt'])} bostäder, varav {fmt(d['smahus'])} småhus och {fmt(d['flerbost'])} lägenheter i flerbostadshus. {d['pre1970_andel']} procent av bostäderna byggdes före 1970, och flest småhus tillkom under perioden {PKORT.get(_peak2, '')}.</p>
-          <p>{age(d)} Det gör en kamera inspektion särskilt relevant här: den avgör om rören är gjutjärn, hur de mår och vilken åtgärd som är rimlig.</p>
-          {_ptbl2}
-          <h2>Riktpriser i {esc(lan)}</h2>
-          <table class="tbl" style="margin-bottom:24px"><thead><tr><th>Tjänst</th><th>Riktpris</th></tr></thead><tbody>
-            <tr><td>Inspektion villa</td><td>0 – 2 500 kr</td></tr>
-            <tr><td>Inspektion fastighet</td><td>5 000 – 40 000 kr</td></tr>
-            <tr><td>I samband med relining</td><td>Ofta inkluderad</td></tr>
-          </tbody></table>
-          <h2>När du bör beställa inspektion i {esc(name)}</h2>
-          <ul><li>Återkommande stopp trots spolning</li><li>Dålig lukt eller missfärgat vatten</li>
-          <li>Innan du beställer relining eller stambyte</li><li>Inför köp av äldre hus</li></ul>
-          <h2>Relining i {esc(name)}</h2>
-          <p>Visar inspektionen att rören är slitna men hela är relining ofta rätt åtgärd. Läs mer om <a href="/relining/{slug}/">relining i {esc(name)}</a>.</p>
-          <h2 style="font-size:22px">Rörinspektion i fler orter</h2>
-          <div class="pills rv">{links2}</div>
-          <div class="cta-band" style="margin-top:40px"><h2>Boka rörinspektion i {esc(name)}</h2>
-            <p>Kostnadsfri bedömning av lokala firmor i {esc(lan)}.</p>
-            <a class="btn btn-primary btn-lg" href="/offert/">Skicka förfrågan</a></div>
-        </div></div></section>'''
-        write(p2+"index.html", page(f"Rörinspektion {esc(name)} – kamera inspektion av avlopp | Reliningkoll",
-          f"Rörinspektion i {name} med kamera. Hitta lokala firmor i {lan}, se priser och vad inspektionen visar innan du beställer relining.",
-          p2, b2, crumb=[("Hem","/"),("Rörinspektion","/rorinspektion/"),(name,p2)]))
 
 if __name__ == "__main__":
     print("Kommuner med egen sida:", len(CITY_SET))

@@ -400,7 +400,8 @@ def build_pages():
       <h1 class="h1">Användarvillkor</h1></div></section>
       <section style="padding-top:0"><div class="wrap narrow"><div class="prose">
       <h2>Om tjänsten</h2>
-      <p>Reliningkoll förmedlar kontakt mellan dig som privatperson och entreprenörer inom relining och avloppsrenovering. Tjänsten är kostnadsfri för dig och medför ingen köpförpliktelse.</p>
+      <p>Reliningkoll förmedlar kontakt mellan dig som privatperson och entreprenörer inom relining, avloppsspolning och rörinspektion i Sverige. Du beskriver ditt ärende en gång och vi skickar det vidare till upp till tre entreprenörer som arbetar i din kommun. Tjänsten är kostnadsfri för dig och medför ingen köpförpliktelse.</p>
+      <p>Vi är inte part i avtalet mellan dig och entreprenören och tar ingen provision på själva arbetet. Vi påverkar inte priset du får och kan inte styra vilken firma du väljer. Vår roll är att förmedla kontakten och att ställa krav på vilka företag som får vara med.</p>
       <h2>Vårt ansvar</h2>
       <p>Vi förmedlar kontakt men är inte part i avtalet mellan dig och entreprenören. Vi ansvarar inte för utfört arbete, pris eller garanti. Kontrollera alltid att entreprenören har F-skatt och försäkring innan du beställer.</p>
       <h2>Företag som ansluter sig</h2>
