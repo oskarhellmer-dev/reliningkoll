@@ -346,7 +346,9 @@ def build_service_geo():
           <h2>Vad en rörinspektion visar</h2>
           <p>Med en kamera inspekteras rören inifrån i {esc(name)}. Du ser rörens skick, dimension, eventuella sprickor, rötter och avlagringar. I en kommun där {d['pre1970_andel']} procent av bostäderna byggdes före 1970 är det särskilt relevant att veta om rören är gjutjärn och hur de mår. Inspektionen är grunden för varje seriös offert.</p>
           <h2>Bostadsbeståndet i {esc(name)}</h2>
-          <p>{esc(name)} har {fmt(d['totalt'])} bostäder, varav {fmt(d['smahus'])} småhus och {fmt(d['flerbost'])} lägenheter i flerbostadshus. {d['pre1970_andel']} procent av bostäderna byggdes före 1970, och flest småhus tillkom under perioden {PKORT.get(_peak2, '')}. Hus från de åren har i regel gjutjärnsrör, vilket gör en kamera inspektion särskilt relevant här.</p>
+          <p>{narr(d)}</p>
+          <p>{esc(name)} har {fmt(d['totalt'])} bostäder, varav {fmt(d['smahus'])} småhus och {fmt(d['flerbost'])} lägenheter i flerbostadshus. {d['pre1970_andel']} procent av bostäderna byggdes före 1970, och flest småhus tillkom under perioden {PKORT.get(_peak2, '')}.</p>
+          <p>{age(d)} Det gör en kamera inspektion särskilt relevant här: den avgör om rören är gjutjärn, hur de mår och vilken åtgärd som är rimlig.</p>
           <h2>Riktpriser i {esc(lan)}</h2>
           <table class="tbl" style="margin-bottom:24px"><thead><tr><th>Tjänst</th><th>Riktpris</th></tr></thead><tbody>
             <tr><td>Inspektion villa</td><td>0 – 2 500 kr</td></tr>

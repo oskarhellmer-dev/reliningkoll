@@ -352,6 +352,8 @@ def build_pages():
         <p>All statistik på sajten kommer från öppna källor, i första hand SCB:s öppna API, och redovisas med källa där den används. Vi hittar aldrig på siffror, kundomdömen eller referensprojekt. Saknas underlag skriver vi det, i stället för att fylla ut med påståenden.</p>
         <h2>Redaktionella principer</h2>
         <p>Guider och prissidor skrivs för att hjälpa dig fatta ett beslut, inte för att sälja in en enskild firma. Vi rekommenderar inga specifika företag, och ingen firma kan köpa sig bättre placering än någon annan.</p>
+        <h2>Varför vissa kommuner har egen sida</h2>
+        <p>Vi publicerar en kommunsida bara där det finns ett verkligt underlag: tillräckligt många bostäder och faktisk söktrafik. Kommuner med ett litet bestånd får ingen egen sida, eftersom en tunn kopia inte hjälper någon. Det är samma princip som gör att vi hellre har färre, djupare sidor än många som ser likadana ut.</p>
         <h2>Kontakt</h2>
         <p>Mejla oss på <a href="mailto:{FORM_EMAIL}">{FORM_EMAIL}</a>. Vi svarar normalt inom en arbetsdag.</p>
       </div></div></section>'''
@@ -380,6 +382,10 @@ def build_pages():
       <p>Vi kan uppdatera denna policy när tjänsten förändras. Väsentliga ändringar framgår av datumet för senaste uppdatering.</p>
       <h2>Klagomål</h2>
       <p>Anser du att vi behandlar dina uppgifter felaktigt kan du kontakta oss, och i andra hand klaga hos Integritetsskyddsmyndigheten.</p>
+      <h2>Rättslig grund</h2>
+      <p>Vi behandlar dina uppgifter för att kunna fullgöra den tjänst du begärt, vilket är den rättsliga grunden. Du kan när som helst återkalla din förfrågan och begära att uppgifterna raderas, så länge de inte behövs för bokföring eller andra lagkrav.</p>
+      <h2>Barn</h2>
+      <p>Tjänsten riktar sig till vuxna fastighetsägare. Vi samlar inte medvetet in uppgifter om barn.</p>
       </div></div></section>'''
     write("/integritetspolicy/index.html", page("Integritetspolicy – så hanterar Reliningkoll dina uppgifter",
       "Så behandlar Reliningkoll dina personuppgifter enligt GDPR. Vilka uppgifter vi samlar in, vem vi delar dem med och vilka rättigheter du har.", "/integritetspolicy/", body,
@@ -399,6 +405,10 @@ def build_pages():
       <p>Innehållet på sajten, inklusive text och statistik, tillhör Reliningkoll. Du får citera kortare avsnitt med tydlig hänvisning till källan.</p>
       <h2>Ändringar av villkoren</h2>
       <p>Vi kan uppdatera dessa villkor när tjänsten förändras. De villkor som gällde när du skickade din förfrågan gäller för den förfrågan.</p>
+      <h2>Ansvarsbegränsning</h2>
+      <p>Vi ansvarar inte för indirekta skador eller utebliven vinst till följd av att du använder tjänsten. Vårt ansvar är begränsat till att förmedla kontakt på det sätt som beskrivs här.</p>
+      <h2>Force majeure</h2>
+      <p>Vi ansvarar inte för hinder som ligger utanför vår kontroll, till exempel driftstörningar hos leverantörer eller myndighetsbeslut.</p>
       <h2>Tvist och lagval</h2>
       <p>Svensk lag tillämpas. Tvist avgörs i första hand genom dialog mellan parterna.</p>
       <h2>Kontakt</h2>
