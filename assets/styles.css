@@ -275,7 +275,7 @@ section h2:first-child,section>div>h2{margin-top:0}
 .callout p+p{margin-top:.7em}
 
 /* ---------- answer-first (AEO) ---------- */
-.answer{border:1px solid var(--rule-strong);background:var(--plate);border-radius:0;
+.answer{border:1px solid var(--rule-strong);background:var(--plate);border-radius:0;max-width:var(--measure);
   padding:20px 24px 18px;margin:24px 0 0;box-shadow:inset 0 3px 0 0 var(--stamp)}
 .answer p{margin:0;font-size:.98rem}
 .answer strong{color:var(--stamp)}
