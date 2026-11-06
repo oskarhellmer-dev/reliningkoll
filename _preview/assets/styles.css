@@ -78,7 +78,8 @@ h2{font-size:clamp(1.5rem,2.7vw,2.05rem);text-transform:uppercase;letter-spacing
 h3{font-size:1.4rem;text-transform:none;letter-spacing:-0.015em}
 h4{font-size:.72rem;font-family:var(--mono);font-weight:600;text-transform:uppercase;
   letter-spacing:.1em;color:var(--ink-soft);margin-bottom:.9em}
-p{margin:0 0 1.05em}
+p{margin:0 0 1.05em;text-wrap:pretty}
+li,dd,td{text-wrap:pretty}
 .lead{font-size:clamp(1.06rem,1.5vw,1.24rem);line-height:1.5;color:var(--ink-soft);max-width:60ch}
 .small{font-size:.83rem;line-height:1.5}
 .caption{font-family:var(--mono);font-size:.7rem;font-weight:600;text-transform:uppercase;
