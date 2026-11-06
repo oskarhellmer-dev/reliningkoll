@@ -64,7 +64,7 @@ PRICES = {
      ("Sänker relining hyran?","Nej, men det gör ett stambyte onödigt och håller nere framtida underhåll.")]},
  "avloppsspolning": {"h1":"Avloppsspolning: pris och när det behövs",
    "title":"Avloppsspolning pris 2026 – vad kostar det? | Reliningkoll",
-   "desc":"Vad kostar avloppsspolning 2026? Priser, när spolning räcker och när du i stället behöver relining eller rörinspektion.",
+   "desc":"Vad kostar avloppsspolning 2026? Priser för villa och fastighet, när spolning räcker och när du i stället behöver relining eller rörinspektion.",
    "rows":[("Spolning villa","1 500 – 3 500 kr"),("Spolning flerbostadshus","3 000 – 6 000 kr"),
      ("Akut utryckning kväll/helg","2 000 – 5 000 kr")],
    "sections":[("Räcker spolning?",[
@@ -195,71 +195,52 @@ def build_cities():
               f"Relining i {name}? Jämför offerter från lokala firmor i {lan}. Priser för villa och bostadsrätt, ROT-avdrag och hur det går till.",
               path, body, faq=faq, crumb=[("Hem","/"),("Relining","/relining/"),(name,path)]))
 
-# ---------------------------------------------------------------- företag
-FIRMS = [
- ("rorfrisk-relining-ab","Rörfrisk Relining AB","Stockholm","Stockholms län","Strumpmetoden, UV-härdning","2011"),
- ("nordisk-stamteknik","Nordisk Stamteknik","Göteborg","Västra Götalands län","Strumpmetoden, rörinspektion","2008"),
- ("skaneror-renovering","Skånerör Renovering","Malmö","Skåne län","Strumpmetoden, gjutjärn","2014"),
- ("mellansvensk-relining","Mellansvensk Relining","Örebro","Örebro län","UV-relining, BRF-projekt","2016"),
- ("norrlands-rorinfodring","Norrlands Rörinfodring","Umeå","Västerbottens län","Strumpmetoden, ventilation","2012"),
-]
-
+# ---------------------------------------------------------------- företag (granskning)
 def build_firms():
-    _fslugs = [f[0] for f in FIRMS]
-    cards = ''.join(f'''<a class="card rv" href="/foretag/{s}/"><div class="num">{logo_ph(n)}</div>
-      <h2>{esc(n)}</h2><p>{esc(ort)} &middot; {esc(met)}</p></a>''' for s,n,ort,lan,met,_ in FIRMS)
-    write("/foretag/index.html", page("Anslutna reliningfirmor | Reliningkoll",
-      "Firmor anslutna till Reliningkoll. Alla granskade för F-skatt, ansvarsförsäkring och erfarenhet av relining. Se vilka som arbetar i din kommun.",
-      "/foretag/", f'''<section class="hero"><div class="wrap narrow">
-        {crumb_html([("Hem","/"),("Företag","/foretag/")])}
-        <h1 class="h1">Anslutna reliningfirmor</h1>
-        <p class="lead">Företagen nedan är anslutna till Reliningkoll och har granskats för F-skatt, momsregistrering, ansvarsförsäkring och erfarenhet av relining.</p>
-        </div></section><section><div class="wrap"><div class="grid grid-3">{cards}</div></div></section>''',
-      crumb=[("Hem","/"),("Företag","/foretag/")]))
-
-    for slug, name, ort, lan, met, since in FIRMS:
-        path = f"/foretag/{slug}/"
-        _fi = _fslugs.index(slug)
-        _neigh = [_fslugs[(_fi + k) % len(_fslugs)] for k in range(1, 4)]
-        _nmap = {f[0]: f[1] for f in FIRMS}
-        neigh_links = ''.join(f'<a href="/foretag/{x}/">{esc(_nmap[x])}</a>' for x in _neigh)
-        _cslug = _NAME2SLUG.get(ort.lower())
-        city_link = (f'<a href="/relining/{_cslug}/">Relining i {esc(ort)}</a>'
-                     if _cslug and _cslug in _CITYSET
-                     else '<a href="/relining/">Se alla kommuner</a>')
-        body = f'''<section class="hero"><div class="wrap narrow">
-          {crumb_html([("Hem","/"),("Företag","/foretag/"),(name,path)])}
-          <h1 class="h1">{esc(name)}<span class="badge">Granskad</span></h1>
-          <p class="lead">{esc(ort)}, {esc(lan)}. Verksamma sedan {esc(since)}. Metoder: {esc(met)}.</p>
-          <div class="hero-cta"><a class="btn btn-primary btn-lg" href="/offert/">Begär offert</a></div>
-        </div></section>
-        <section style="padding-top:0"><div class="wrap"><div class="prose">
-          <h2>Om {esc(name)}</h2>
-          <p>{esc(name)} utför relining och rörrenovering i {esc(ort)} med omnejd. Företaget arbetar med {esc(met).lower()} och tar uppdrag för villor, bostadsrättsföreningar och fastighetsägare.</p>
-          <h2>Granskning</h2>
-          <ul><li>Godkänd F-skatt och momsregistrering</li><li>Ansvarsförsäkring</li>
-          <li>Inga betalningsanmärkningar</li><li>Erfarenhet av relining sedan {esc(since)}</li></ul>
-          <h2>Tjänster</h2>
-          <ul><li>Relining av avloppsstammar</li><li>Rörinspektion med kamera</li><li>Avloppsspolning</li><li>Relining av gjutjärnsrör</li></ul>
-          <h2>Relaterat</h2>
-          <div class="pills">
-            {city_link}
-            <a href="/relining/">Relining i din kommun</a>
-            <a href="/pris/">Priser 2026</a>
-            <a href="/guider/vad-ar-relining/">Vad är relining?</a>
-            <a href="/for-proffs/">Anslut ditt företag</a>
-          </div>
-          <h2>Fler firmor</h2><div class="pills">{neigh_links}</div>
-          <div class="cta-band" style="margin-top:40px"><h2>Vill du ha offert från {esc(name)}?</h2>
-            <p>Beskriv ditt projekt så matchar vi dig med lokala firmor, inklusive denna.</p>
-            <a class="btn btn-primary btn-lg" href="/offert/">Få offerter</a></div>
-        </div></div></section>'''
-        write(path + "index.html", page(f"{name} – relining i {ort} | Reliningkoll",
-          f"{name} utför relining i {ort}. Granskad för F-skatt och försäkring. Begär kostnadsfri offert via Reliningkoll.",
-          path, body, crumb=[("Hem","/"),("Företag","/foretag/"),(name,path)],
-          schema=json.dumps({"@context":"https://schema.org","@type":"LocalBusiness","name":name,
-            "address":{"@type":"PostalAddress","addressLocality":ort,"addressRegion":lan,"addressCountry":"SE"},
-            "areaServed":lan,"url":BASE+path}, ensure_ascii=False)))
+    """Ärlig granskningssida. Inga påhittade firmor — profiler publiceras först
+    när riktiga företag har anslutit och granskats."""
+    body = f'''<section class="hero"><div class="wrap narrow">
+      {crumb_html([("Hem","/"),("Granskning","/foretag/")])}
+      <h1 class="h1">Så granskar vi firmor</h1>
+      <p class="lead">Reliningkoll förmedlar kontakt mellan fastighetsägare och entreprenörer. Här är exakt vilka krav en firma måste uppfylla innan den får ta emot förfrågningar genom tjänsten.</p>
+      <div class="hero-cta"><a class="btn btn-primary btn-lg" href="/offert/">Få offerter</a>
+        <a class="btn btn-ghost btn-lg" href="/for-proffs/">Är du firma? Anslut dig</a></div>
+    </div></section>
+    <section class="s-pt0"><div class="wrap"><div class="prose">
+      <h2>Fyra krav innan en firma släpps in</h2>
+      <p>Vi ansluter inga firmor slentrianmässigt. Varje företag kontrolleras innan det får ta del av förfrågningar, och kontrollen upprepas löpande medan samarbetet pågår. En firma som slutar uppfylla kraven tas bort.</p>
+      <ul>
+        <li><strong>F-skatt och momsregistrering.</strong> Företaget ska vara registrerat hos Skatteverket och ha rätt att fakturera med F-skatt.</li>
+        <li><strong>Ansvarsförsäkring.</strong> Giltig företagsförsäkring med ansvar som täcker utfört arbete.</li>
+        <li><strong>Inga betalningsanmärkningar.</strong> Kontroll hos Kronofogden innan anslutning.</li>
+        <li><strong>Dokumenterad erfarenhet.</strong> Referensobjekt av relining eller motsvarande rörrenovering som går att styrka.</li>
+      </ul>
+      <h2>Vad vi tittar på i utförandet</h2>
+      <p>Kraven ovan är tröskeln in. Därefter bedöms hur arbetet faktiskt utförs, eftersom det är där kvaliteten avgörs över tid.</p>
+      <ul>
+        <li>Att firman alltid gör en kamera inspektion före och efter arbetet.</li>
+        <li>Att rörinspektionen dokumenteras så att du som beställare får film och protokoll.</li>
+        <li>Att val av metod motiveras utifrån rörens skick, inte utifrån vad som är enklast för firman.</li>
+        <li>Att garantin lämnas skriftligt med tydlig ansvarstid.</li>
+        <li>Att offerten är specifik och att inga dolda tillägg dyker upp efteråt.</li>
+      </ul>
+      <h2>Varför vi inte visar påhittade betyg</h2>
+      <p>Vi publicerar inga recensioner eller betyg som vi inte kan belägga. Tycker du att en firma skött sig bra, säg till oss så kan omdömet användas. Vi hittar aldrig på kundomdömen eller siffror, varken här eller i våra guider.</p>
+      <h2>Firmaprofiler publiceras när riktiga firmor ansluter</h2>
+      <p>Vi har valt att inte fylla den här sidan med påhittade exempelföretag. Så snart verkliga entreprenörer har anslutit och godkänts publicerar vi deras profiler med verksamhetsområde, metoder och granskningsstatus. Fram till dess är tjänsten öppen för firmor som vill ansluta.</p>
+      <div class="callout"><p>Är du entreprenör och uppfyller kraven? Mejla <a href="mailto:{FORM_EMAIL}">{FORM_EMAIL}</a> och berätta vilka kommuner du arbetar i.</p></div>
+      <h2>Relaterat</h2>
+      <div class="pills">
+        <a href="/for-proffs/">Anslut ditt företag</a>
+        <a href="/om-oss/">Om Reliningkoll</a>
+        <a href="/guider/valja-reliningfirma/">Välja reliningfirma</a>
+        <a href="/guider/fragor-till-reliningfirma/">Frågor att ställa till firman</a>
+        <a href="/offert/">Få offerter</a>
+      </div>
+    </div></div></section>'''
+    write("/foretag/index.html", page("Så granskar vi firmor – krav och kontroll | Reliningkoll",
+      "Så granskar Reliningkoll entreprenörer innan de får ta emot uppdrag: F-skatt, ansvarsförsäkring, kreditkontroll och dokumenterad erfarenhet av relining.",
+      "/foretag/", body, crumb=[("Hem","/"),("Granskning","/foretag/")]))
 
 # ---------------------------------------------------------------- offert / proffs / om / legal / 404
 def build_pages():
@@ -311,7 +292,7 @@ def build_pages():
       <h1 class="h1">Få fler reliningjobb</h1>
       <p class="lead">Ta emot manuellt granskade förfrågningar från villaägare, bostadsrättsföreningar och fastighetsägare i din kommun. Ingen bindningstid, betala bara för de leads du accepterar.</p>
       <div class="hero-cta"><a class="btn btn-primary btn-lg" href="mailto:{FORM_EMAIL}?subject=Anslut%20mitt%20företag">Anslut ditt företag</a>
-        <a class="btn btn-ghost btn-lg" href="/foretag/">Se anslutna företag</a></div></div></section>
+        <a class="btn btn-ghost btn-lg" href="/foretag/">Så granskar vi firmor</a></div></div></section>
       <section class="bg-card"><div class="wrap">
         <div class="sec-head rv"><h2>Varför ansluta sig?</h2></div>
         <div class="grid grid-3">
@@ -370,7 +351,7 @@ def build_pages():
       <h2>Lagringstid</h2>
       <p>Vi sparar uppgifterna så länge de behövs för att hantera din förfrågan och därefter enligt gällande lagkrav.</p>
       </div></div></section>'''
-    write("/integritetspolicy/index.html", page("Integritetspolicy | Reliningkoll",
+    write("/integritetspolicy/index.html", page("Integritetspolicy – så hanterar Reliningkoll dina uppgifter",
       "Så behandlar Reliningkoll dina personuppgifter enligt GDPR. Vilka uppgifter vi samlar in, vem vi delar dem med och vilka rättigheter du har.", "/integritetspolicy/", body,
       crumb=[("Hem","/"),("Integritetspolicy","/integritetspolicy/")]))
 
@@ -387,7 +368,7 @@ def build_pages():
       <h2>Kontakt</h2>
       <p>Frågor om villkoren besvaras på <a href="mailto:{FORM_EMAIL}">{FORM_EMAIL}</a>.</p>
       </div></div></section>'''
-    write("/anvandarvillkor/index.html", page("Användarvillkor | Reliningkoll",
+    write("/anvandarvillkor/index.html", page("Användarvillkor för Reliningkoll – så fungerar tjänsten",
       "Villkor för att använda Reliningkoll. Så fungerar förmedlingen, ditt ansvar och vårt när du begär offerter på relining eller avloppsrenovering.", "/anvandarvillkor/", body,
       crumb=[("Hem","/"),("Användarvillkor","/anvandarvillkor/")], noindex=False))
 

@@ -107,9 +107,19 @@ def build_cities_geo():
       <p class="lead">Vi förmedlar lokala reliningfirmor. Välj din kommun för lokala fakta om bostadsbeståndet, byggnadsperioder, priser och entreprenörer i ditt område.</p>
       <div class="hero-cta"><a class="btn btn-primary btn-lg" href="/offert/">Få offerter</a></div>
     </div></section>
+    <section class="s-pt0"><div class="wrap narrow"><div class="prose">
+      <h2>Varför behovet skiljer sig mellan kommuner</h2>
+      <p>Omfattningen av relining följer bostadsbeståndets ålder. I kommuner med mycket bebyggelse före 1970 är gjutjärnsrören vanliga, och där blir relining en vanlig åtgärd. I kommuner som vuxit senare dominerar plaströr, som åldras långsammare men kan bli spröda.</p>
+      <p>Varje kommunsida här bygger på riktig statistik från SCB: antal bostäder, fördelning mellan småhus och flerbostadshus, och hur stor del som byggdes under varje årtionde. Statistiken berättar indirekt vilka rör kommunens hus har, eftersom rör läggs i samband med att huset byggs.</p>
+      <h2>Så använder du sidorna</h2>
+      <p>Börja med att titta på andelen bostäder byggda före 1970 i din kommun. En hög andel betyder att många fastigheter har rör som närmar sig eller passerat sin tekniska livslängd. Titta sedan på fördelningen mellan småhus och flerbostadshus: i en småhusdominerad kommun är det villaägaren som driver projekten, i en tät kommun är det oftare bostadsrättsföreningar och fastighetsbolag.</p>
+      <h2>Från inspektion till offert</h2>
+      <p>Oavsett kommun är vägen till rätt åtgärd densamma: en kamera inspektion visar rörens skick, och utifrån den går det att avgöra om spolning, relining eller rörbyte är rätt. Först därefter är en offert möjlig att jämföra på riktigt.</p>
+      <div class="callout"><p>All statistik på dessa sidor kommer från SCB:s öppna API. Vi publicerar inga påhittade betyg eller recensioner.</p></div>
+    </div></div></section>
     <section><div class="wrap"><div class="pills rv">{cards}</div></div></section>'''
     write("/relining/index.html", page("Relining i din kommun – lokala fakta och firmor | Reliningkoll",
-      "Välj din kommun och se lokalt bostadsbestånd, byggnadsperioder, priser och reliningfirmor. Riktig statistik från SCB per kommun.",
+      "Se bostadsbestånd, byggnadsperioder och lokala förutsättningar för relining i din kommun, byggda på riktig statistik från SCB. Välj kommun och jämför.",
       "/relining/", hub, crumb=[("Hem","/"),("Relining","/relining/")]))
 
     for slug in CITY_SET:
@@ -122,17 +132,8 @@ def build_cities_geo():
             omr2 = f"Förutom {esc(name)} förmedlar vi firmor i {esc(', '.join(areas))}."
         else:
             omr2 = f"Förutom {esc(name)} förmedlar vi firmor i närliggande orter i {esc(lan)}."
-        try:
-            import build_part2 as _P2
-            _cf = [f for f in _P2.FIRMS if f[2].lower() == name.lower()]
-        except Exception:
-            _cf = []
-        if _cf:
-            _relh = f'<h2>Reliningfirmor i {esc(name)}</h2>'
-            _firm = ''.join(f'<a href="/foretag/{sl}/">{esc(nm)}</a>' for sl, nm, _o, _l, _m, _s in _cf)
-        else:
-            _relh = f'<h2>Relaterat för {esc(name)}</h2>'
-            _firm = '<a href="/foretag/">Anslutna firmor</a>'
+        _relh = f'<h2>Relaterat för {esc(name)}</h2>'
+        _firm = '<a href="/foretag/">Så granskar vi firmor</a>'
         _guides = ('<a href="/guider/vad-ar-relining/">Vad är relining?</a>'
                    '<a href="/guider/relining-eller-stambyte/">Relining eller stambyte?</a>'
                    '<a href="/guider/hur-lange-haller-relining/">Hur länge håller relining?</a>'
@@ -219,7 +220,7 @@ def build_cities_geo():
                ("Vad kostar relining i "+name+"?",
                 "För en villa ligger priset oftast mellan 80 000 och 250 000 kr före ROT-avdrag.")]
         write(path + "index.html", page(f"Relining {name} – bostadsbestånd, pris och firmor | Reliningkoll",
-              f"Relining i {name}: {fmt(d['totalt'])} bostäder, {d['pre1970_andel']}% byggda före 1970. Se kommunens bostadsbestånd, priser och lokala firmor.",
+              f"Relining i {name}: {fmt(d['totalt'])} bostäder, {d['pre1970_andel']} procent byggda före 1970. Se kommunens bostadsbestånd, byggnadsperioder och lokala firmor.",
               path, body, faq=faq, crumb=[("Hem","/"),("Relining","/relining/"),(name,path)]))
 
 def build_service_geo():
@@ -233,6 +234,19 @@ def build_service_geo():
         <p class="lead">Stopp i avloppet? Vi förmedlar lokala spolfirmor som löser stopp med högtryck och kamera.</p>
         <div class="hero-cta"><a class="btn btn-primary btn-lg" href="/offert/">Få hjälp med stopp</a>
           <a class="btn btn-ghost btn-lg" href="/pris/avloppsspolning/">Se priser</a></div></div></section>
+        <section class="s-pt0"><div class="wrap narrow"><div class="prose">
+          <h2>Vad som orsakar stopp i avloppet</h2>
+          <p>Ett stopp kommer sällan av en slump. I köket är det fett och matrester som stelnar och bygger beläggning. I badrummet är det hår som blandas med tvålrester. I äldre gjutjärnsrör gör den rostiga insidan att allt fastnar lättare, och proppen blir tätare för varje gång.</p>
+          <h2>Vad du kan lösa själv</h2>
+          <p>Ett enkelt stopp går ofta att lösa med vaskrensare, kokhett vatten eller genom att skruva loss och rengöra vattenlåset. Undvik starka kemiska avloppsrens, som kan skada äldre gjutjärnsrör och täta ledningar.</p>
+          <h2>När du bör anlita en spolfirma</h2>
+          <p>Sitter stoppet längre in än vattenlåset, påverkar flera avlopp samtidigt, eller återkommer det snabbt, krävs högtrycksspolning. Då används rätt tryck och dyse för rörets dimension, och ofta en kamera för att se orsaken. Är rören slitna invändigt kommer stoppet att återkomma tills röret åtgärdas — då är relining ofta rätt lösning.</p>
+          <h2>Så undviker du återkommande stopp</h2>
+          <ul><li>Häll aldrig fett i avloppet, oavsett rörtyp.</li>
+          <li>Använd sil i vask och dusch.</li>
+          <li>Spola förebyggande vartannat till var femte år vid äldre rör.</li>
+          <li>Inspektera rören om stoppet återkommer mer än en gång per år.</li></ul>
+        </div></div></section>
         <section><div class="wrap"><div class="pills rv">{cards}</div></div></section>''',
       crumb=[("Hem","/"),("Avloppsspolning","/avloppsspolning/")]))
 
@@ -246,6 +260,19 @@ def build_service_geo():
         <p class="lead">En kamera inspektion visar rörens skick innan du beställer åtgärd.</p>
         <div class="hero-cta"><a class="btn btn-primary btn-lg" href="/offert/">Boka inspektion</a>
           <a class="btn btn-ghost btn-lg" href="/pris/rorinspektion/">Se priser</a></div></div></section>
+        <section class="s-pt0"><div class="wrap narrow"><div class="prose">
+          <h2>Vad en kamera inspektion visar</h2>
+          <p>En rörinspektion går ut på att en kamera förs genom ledningen och filmar insidan. Du får se rörens material och dimension, sprickor, fogar, avlagringar, rötter och var ett eventuellt problem sitter. Det är den enda tillförlitliga metoden för att bedöma rörens skick.</p>
+          <h2>Varför inspektionen alltid kommer först</h2>
+          <p>Utan inspektion är varje offert på relining en gissning. Rörens längd, dimension och skick avgör både metod och pris, och en firma som lämnar pris utan att ha sett rören tar antingen för högt betalt eller riskerar att behöva lägga till i efterhand.</p>
+          <h2>När du bör beställa inspektion</h2>
+          <ul><li>Återkommande stopp trots spolning.</li>
+          <li>Dålig lukt eller missfärgat vatten från avloppet.</li>
+          <li>Innan du beställer relining eller stambyte.</li>
+          <li>Inför köp av ett hus byggt före 1970.</li></ul>
+          <h2>Vad rapporten ska innehålla</h2>
+          <p>Du bör få filmen och ett protokoll med positionsangivelser, noterade skador och en rekommendation av åtgärd. Spara dokumentationen — den är underlag både för offerter och för framtida underhåll och försäljning.</p>
+        </div></div></section>
         <section><div class="wrap"><div class="pills rv">{cards2}</div></div></section>''',
       crumb=[("Hem","/"),("Rörinspektion","/rorinspektion/")]))
 
@@ -296,6 +323,8 @@ def build_service_geo():
           p, b, crumb=[("Hem","/"),("Avloppsspolning","/avloppsspolning/"),(name,p)]))
 
         alt2 = [TOP_SERVICE[(_ti + k) % len(TOP_SERVICE)] for k in range(1, 11)]
+        _sm2 = d.get("period", {}).get("SMÅHUS", {})
+        _peak2 = max(_sm2, key=_sm2.get) if _sm2 else None
         links2 = ''.join(f'<a class="pills" href="/rorinspektion/{s}/">{esc(GEO[s]["name"])}</a>' for s in alt2)
         p2 = f"/rorinspektion/{slug}/"
         b2 = f'''<section class="hero"><div class="wrap narrow">
@@ -307,6 +336,8 @@ def build_service_geo():
         <section style="padding-top:0"><div class="wrap"><div class="prose">
           <h2>Vad en rörinspektion visar</h2>
           <p>Med en kamera inspekteras rören inifrån i {esc(name)}. Du ser rörens skick, dimension, eventuella sprickor, rötter och avlagringar. I en kommun där {d['pre1970_andel']} procent av bostäderna byggdes före 1970 är det särskilt relevant att veta om rören är gjutjärn och hur de mår. Inspektionen är grunden för varje seriös offert.</p>
+          <h2>Bostadsbeståndet i {esc(name)}</h2>
+          <p>{esc(name)} har {fmt(d['totalt'])} bostäder, varav {fmt(d['smahus'])} småhus och {fmt(d['flerbost'])} lägenheter i flerbostadshus. {d['pre1970_andel']} procent av bostäderna byggdes före 1970, och flest småhus tillkom under perioden {PKORT.get(_peak2, '')}. Hus från de åren har i regel gjutjärnsrör, vilket gör en kamera inspektion särskilt relevant här.</p>
           <h2>Riktpriser i {esc(lan)}</h2>
           <table class="tbl" style="margin-bottom:24px"><thead><tr><th>Tjänst</th><th>Riktpris</th></tr></thead><tbody>
             <tr><td>Inspektion villa</td><td>0 – 2 500 kr</td></tr>

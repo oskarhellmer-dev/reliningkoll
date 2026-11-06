@@ -89,7 +89,7 @@ NEW_GUIDES = {
 "relining-av-betongror": {
  "h1":"Relining av betongrör",
  "title":"Relining av betongrör – metod och pris | Reliningkoll",
- "desc":"Betongrör spricker och nöts med tiden. Här är hur relining av betongrör går till, när det passar och vad det kostar.",
+ "desc":"Betongrör spricker och nöts med tiden, särskilt i äldre källare. Här är hur relining av betongrör går till, när det passar och vad det kostar.",
  "body": sec("Varför betongrör behöver åtgärdas",[
    "Betongrör används ofta i äldre källare och utvändiga ledningar. Med tiden uppstår sprickor, fogar vittrar och avlagringar byggs upp. Relining ger ett nytt, slätt rör inuti det gamla."])+ul([
    "Sprickor och vittrade fogar tätas invändigt.",
@@ -104,7 +104,7 @@ NEW_GUIDES = {
 "relining-av-plastror": {
  "h1":"Relining av plaströr (PVC)",
  "title":"Relining av plaströr – när det behövs och pris | Reliningkoll",
- "desc":"Plaströr från 1970-talet kan bli spröda och spricka. Här är när relining av PVC-rör är rätt lösning och vad den kostar.",
+ "desc":"Plaströr från 1970-talet kan bli spröda och spricka vid sättningar. Här är när relining av PVC- och PP-rör är rätt lösning och vad den kostar.",
  "body": sec("När plaströr behöver relinas",[
    "Äldre PVC- och PP-rör blir med tiden spröda, särskilt vid värme och kemikalier. Fogmuffar kan läcka och rören spricka vid sättningar. Relining förnyar insidan och ger ett tätt system."])+ul([
    "Läckande fogmuffar och sprickor.",
@@ -136,7 +136,7 @@ NEW_GUIDES = {
 "stopp-i-dusch-och-badkar": {
  "h1":"Stopp i duschen eller badkaret – så löser du det",
  "title":"Stopp i dusch och badkar – orsaker och åtgärder | Reliningkoll",
- "desc":"Stopp i duschen beror oftast på hår och tvålrester. Här är vad du kan fixa själv och när du bör kalla på en spolfirma.",
+ "desc":"Stopp i duschen beror oftast på hår och tvålrester. Här är vad du kan fixa själv, och när du i stället bör kalla på en spolfirma.",
  "body": sec("Vanligaste orsaken",[
    "I dusch och badkar är det nästan alltid hår som blandas med tvålrester och bildar en propp i vattenlåset eller röret. Detta skiljer sig från köksavloppet, där fett dominerar."]) +
    sec("Vad du kan göra själv",[])+ul([
@@ -240,7 +240,7 @@ NEW_GUIDES = {
 "relining-flerbostadshus": {
  "h1":"Relining i flerbostadshus och fastighetsbolag",
  "title":"Relining flerbostadshus – process för fastighetsägare | Reliningkoll",
- "desc":"Relining i flerbostadshus kräver planering i etapper. Här är processen för fastighetsägare och bostadsrättsföreningar.",
+ "desc":"Relining i flerbostadshus kräver planering i etapper stam för stam. Här är hela processen för fastighetsägare och bostadsrättsföreningar.",
  "body": sec("Varför relining passar flerbostadshus",[
    "I flerbostadshus är ett stambyte dyrt och stör boende i månader. Relining kan utföras stam för stam så att hela huset aldrig står utan avlopp samtidigt. Det sänker både kostnad och störning."]) +
    sec("Process i fem steg",[])+ul([
@@ -257,7 +257,7 @@ NEW_GUIDES = {
 "rotavdrag-avlopp-regler": {
  "h1":"ROT-avdrag för avlopp och relining – reglerna 2026",
  "title":"ROT-avdrag avlopp 2026 – regler och exempel | Reliningkoll",
- "desc":"Relining och rörarbete i egen villa är ROT-berättigat. Här är reglerna, taket och hur du räknar ut avdraget 2026.",
+ "desc":"Relining och rörarbete i egen villa är ROT-berättigat. Här är reglerna, taket per person och år samt räkneexempel för avdraget 2026.",
  "body": sec("Reglerna i korthet",[
    "Du får dra av 30 procent av arbetskostnaden för relining och rörarbete i din egen villa, upp till 50 000 kr per person och år. Äger ni huset tillsammans kan båda använda sitt avdrag, vilket ger upp till 100 000 kr per år."]) +
    sec("Räkneexempel",[])+ul([
@@ -307,7 +307,7 @@ NEW_GUIDES = {
 # ================================================================ NYA PRISER
 NEW_PRICES = {
  "stambyte": {"h1":"Vad kostar ett stambyte?","title":"Stambyte pris 2026 – kostnad villa och BRF | Reliningkoll",
-   "desc":"Vad kostar ett stambyte 2026? Priser för villa, lägenhet och flerfamiljshus, samt varför relining ofta blir billigare.",
+   "desc":"Vad kostar ett stambyte 2026? Priser för villa, lägenhet och flerfamiljshus, samt varför relining oftast blir betydligt billigare.",
    "rows":[("Villa, komplett","150 000 – 400 000 kr"),("Lägenhet per stam","80 000 – 160 000 kr"),
      ("Flerfamiljshus, hel fastighet","2 – 6 miljoner kr"),("Återställning badrum/kök","tillkommer ofta")],
    "sections":[("Varför stambyte blir dyrare",["Till rörkostnaden kommer rivning, nytt kakel, kök, el och VVS samt evakuering av boende. Det gör totalkostnaden betydligt högre än relining."]),
@@ -326,7 +326,7 @@ NEW_PRICES = {
      ("Spolning fastighet","3 000 – 6 000 kr"),("Akut kväll/helg","2 000 – 5 000 kr")],
    "sections":[("När räcker rensning?",["Ett enstaka stopp kan ofta lösas med rensning. Återkommer problemet krävs spolning och inspektion."])],
    "faq":[("Kan jag undvika återkommande stopp?","Om orsaken är avlagringar eller rötter i röret hjälper bara spolning och eventuell relining.")]},
- "relining-per-meter": {"h1":"Pris per meter för relining","title":"Relining pris löpmeter 2026 | Reliningkoll",
+ "relining-per-meter": {"h1":"Pris per meter för relining","title":"Relining pris per löpmeter 2026 – kostnad för avloppsrör",
    "desc":"Kostnad per meter för relining 2026, för avloppsrör, stam i flerbostadshus och rostigt gjutjärn. Så räknar du ut ditt pris utifrån rörlängd.",
    "rows":[("Avloppsrör villa","800 – 1 200 kr/m"),("Stam flerbostadshus","1 000 – 1 500 kr/m"),
      ("Gjutjärn rostigt","1 100 – 1 500 kr/m")],
@@ -339,7 +339,7 @@ NEW_PRICES = {
    "sections":[("Varför inspektion är avgörande",["Utan inspektion går det inte att veta rörens skick eller dimension. Alla seriösa offerter bygger på en inspektion."])],
    "faq":[("Får jag behålla filmen?","Ja, du bör få film och protokoll dokumenterat.")]},
  "rotavdrag": {"h1":"ROT-avdrag – vad du får tillbaka","title":"ROT-avdrag 2026 – regler, tak och exempel | Reliningkoll",
-   "desc":"ROT-avdrag 2026: 30 procent av arbetskostnaden, tak 50 000 kr per person och år. Här är reglerna och räkneexempel.",
+   "desc":"ROT-avdrag 2026: 30 procent av arbetskostnaden, tak 50 000 kr per person och år. Här är reglerna, vad som är avdragsgillt och räkneexempel.",
    "rows":[("Avdrag","30 % av arbetskostnaden"),("Tak","50 000 kr per person/år"),
      ("Två ägare","Upp till 100 000 kr/år")],
    "sections":[("Vad som är ROT-berättigat",["Arbetskostnaden för relining och rörarbete i egen villa. Material räknas inte."]),

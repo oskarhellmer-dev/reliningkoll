@@ -104,7 +104,7 @@ G["relining-av-radhus"] = {
 G["relining-av-fritidshus"] = {
  "h1":"Relining av fritidshus och sommarstuga",
  "title":"Relining fritidshus – avlopp i stugan | Reliningkoll",
- "desc":"Fritidshus har ofta gamla gjutjärnsrör som står oanvända stora delar av året. Så avgör du om relining är rätt.",
+ "desc":"Fritidshus har ofta gamla gjutjärnsrör som står oanvända stora delar av året. Så avgör du om relining är rätt, och vilka hänsyn som gäller.",
  "body": sec("Varför fritidshus ofta behöver åtgärdas", [
    "Äldre sommarstugor har ofta avlopp från mitten av 1900-talet, med gjutjärnsrör som stått torra långa perioder. Kombinationen av ålder, fuktvandring och stillestånd gör rören sköra."]) +
  sec("Särskilda hänsyn", []) + ul([
@@ -138,7 +138,7 @@ G["uv-hardning"] = {
 G["vilken-metod-ar-bast"] = {
  "h1":"Vilken reliningmetod är bäst?",
  "title":"Vilken reliningmetod är bäst? UV vs strumpa | Reliningkoll",
- "desc":"UV-härdning eller strumpmetoden? Här jämförs metoderna så att du kan bedöma vilken som passar din fastighet bäst.",
+ "desc":"UV-härdning eller strumpmetoden? Här jämförs metoderna sida vid sida så att du kan bedöma vilken som passar just din fastighet bäst.",
  "body": sec("Svaret: det beror på röret", [
    "Det finns ingen metod som alltid är bäst. Valet styrs av rörets dimension, längd, krökar, material och hur snabbt arbetet måste gå. En erfaren entreprenör väljer metod efter en kamera inspektion."]) +
  '<table class="tbl"><thead><tr><th>Aspekt</th><th>UV-härdning</th><th>Strumpmetoden</th></tr></thead><tbody>' +
@@ -154,7 +154,7 @@ G["vilken-metod-ar-bast"] = {
 G["relining-fore-kop-av-hus"] = {
  "h1":"Relining innan du köper hus – vad du bör kontrollera",
  "title":"Köpa hus med gjutjärnsrör – relining och besiktning | Reliningkoll",
- "desc":"Gjutjärnsrör är en vanlig dold kostnad vid husköp. Så bedömer du rörens skick innan köpet och vad relining kostar.",
+ "desc":"Gjutjärnsrör är en vanlig dold kostnad vid husköp. Så bedömer du rörens skick innan köpet, och vad relining kostar om den behövs.",
  "body": sec("Varför rören är en dold kostnad", [
    "Vid en vanlig besiktning kontrolleras sällan avloppets insida. Köper du ett hus byggt före 1970 är chansen stor att stammen är av gjutjärn, och att den behöver ses över inom några år. Det kan bli en kostnad på 100 000 kr eller mer som inte syns i annonsen."]) +
  sec("Så tar du reda på skicket", []) + ul([
@@ -225,7 +225,7 @@ G["relining-av-huvudledning"] = {
 G["relining-av-dagvatten"] = {
  "h1":"Relining av dagvattenledningar",
  "title":"Relining av dagvatten – dränering och stuprör | Reliningkoll",
- "desc":"Dagvattenledningar tar hand om regn och smältvatten. Här är när relining är rätt och vad som skiljer från spillvatten.",
+ "desc":"Dagvattenledningar tar hand om regn och smältvatten från tak och dränering. Här är när relining är rätt och vad som skiljer från spillvatten.",
  "body": sec("Vad dagvattenledningar gör", [
    "Dagvattenledningar leder bort regn- och smältvatten från tak, uppfarter och dränering. De ligger ofta i mark, är av betong eller plast och kan precis som spillvattenledningar relinas."]) +
  sec("När de behöver åtgärdas", []) + ul([
@@ -243,7 +243,7 @@ G["relining-av-dagvatten"] = {
 G["hur-vet-man-att-ror-ar-gjutjarror"] = {
  "h1":"Hur vet man att rören är av gjutjärn?",
  "title":"Gjutjärnsrör eller plast – så känner du igen dem | Reliningkoll",
- "desc":"Osäker på om dina rör är gjutjärn eller plast? Här är hur du känner igen materialet och varför det spelar roll.",
+ "desc":"Osäker på om dina rör är gjutjärn eller plast? Här är hur du känner igen materialet utifrån husets ålder och vad det betyder för åtgärden.",
  "body": sec("Varför materialet spelar roll", [
    "Gjutjärnsrör rostar inifrån och behöver med tiden relinas eller bytas. Plaströr åldras långsammare men kan bli spröda. Vilket material du har avgör vilken åtgärd som är rimlig."]) +
  sec("Så känner du igen gjutjärn", []) + ul([
@@ -263,7 +263,7 @@ G["hur-vet-man-att-ror-ar-gjutjarror"] = {
 G["avloppsror-dimensioner"] = {
  "h1":"Avloppsrörens dimension – vad siffrorna betyder",
  "title":"Avloppsrör dimensioner – så läser du måtten | Reliningkoll",
- "desc":"Vad betyder 110, 75 och 50 i avloppssammanhang? Här är rörens dimensioner och varför de spelar roll vid relining.",
+ "desc":"Vad betyder 110, 75 och 50 i avloppssammanhang? Här är rörens dimensioner och varför de spelar roll när du ska relina eller byta avloppsrör.",
  "body": sec("Varför dimensionen är viktig", [
    "Rörets innerdiameter avgör hur mycket vatten det klarar. Vid relining läggs ett foder inuti röret, vilket minskar innerdiametern något. Är röret nära sina gränser från början måste detta räknas in."]) +
  sec("Vanliga dimensioner", []) + ul([
@@ -281,7 +281,7 @@ G["avloppsror-dimensioner"] = {
 G["vad-ingar-i-en-relining"] = {
  "h1":"Vad ingår egentligen i en relining?",
  "title":"Vad ingår i en relining? Så läser du offerten | Reliningkoll",
- "desc":"Vad ska ingå i en relining och vad är tillval? Här är momenten så att du kan jämföra offerter på lika villkor.",
+ "desc":"Vad ska ingå i en relining och vad är tillval? Här är alla moment steg för steg, så att du kan jämföra offerter på lika villkor.",
  "body": sec("Momenten som ingår i en seriös relining", []) + ul([
    "Kamera inspektion före arbetet.",
    "Högtrycksspolning och nedslipning av rörens insida.",

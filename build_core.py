@@ -91,7 +91,7 @@ FOOT = f'''</main>
       </ul></div>
       <div><p class="foot-h">För proffs</p><ul>
         <li><a href="/for-proffs/">Anslut ditt företag</a></li>
-        <li><a href="/foretag/">Anslutna företag</a></li>
+        <li><a href="/foretag/">Så granskar vi firmor</a></li>
       </ul></div>
       <div><p class="foot-h">Om tjänsten</p><ul>
         <li><a href="/om-oss/">Om oss</a></li>

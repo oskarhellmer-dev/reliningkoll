@@ -17,7 +17,6 @@ P2.CITIES = M.ALL
 P1.GUIDES.update(S.NEW_GUIDES)
 P1.GUIDES.update(G2.G)
 P2.PRICES.update(S.NEW_PRICES)
-P2.FIRMS = P2.FIRMS + S.NEW_FIRMS
 
 # 1. bygg alla sidor
 C.build_home()

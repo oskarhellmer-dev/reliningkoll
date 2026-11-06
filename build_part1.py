@@ -3,6 +3,7 @@
 import sys, os, json, datetime
 sys.path.insert(0, "/home/clawd/reliningkoll")
 import build_core as C
+from build_extra import SUMMARY, CHECK
 from build_core import page, crumb_html, write, esc, logo_ph, BASE, FORM_EMAIL
 
 # ---------------------------------------------------------------- städer
@@ -113,7 +114,7 @@ GUIDES = {
  "nackdelar-med-relining": {
   "h1":"Nackdelar med relining: tio saker att känna till",
   "title":"Nackdelar med relining – när metoden inte passar | Reliningkoll",
-  "desc":"Relining är inte alltid rätt. Här är nackdelarna: rördimension, begränsningar och situationer där stambyte är bättre.",
+  "desc":"Relining är inte alltid rätt. Här är nackdelarna: trängre rördimension, begränsningar och situationer där stambyte ändå är bättre.",
   "body": sec("Relining är bra, men inte gratis eller perfekt", [
     "Relining löser många problem, men det finns verkliga begränsningar. Den som vill fatta ett bra beslut bör känna till dem innan offerterna beställs."]) + ul([
     "<strong>Röret blir trängre.</strong> Fodret minskar innerdiametern något, vilket i sällsynta fall kan påverka flödet i hårt belastade system.",
@@ -134,7 +135,7 @@ GUIDES = {
  "hur-lange-haller-relining": {
   "h1":"Hur länge håller relining?",
   "title":"Hur länge håller relining? Livslängd och garanti | Reliningkoll",
-  "desc":"En korrekt utförd relining håller 40 till 50 år. Här är vad som avgör livslängden och hur garantier brukar se ut.",
+  "desc":"En korrekt utförd relining håller 40 till 50 år. Här är vad som avgör livslängden, hur garantier brukar se ut och vad du bör kräva skriftligt.",
   "body": sec("Svaret: normalt 40 till 50 år", [
     "Relining utförd enligt branschregler håller i 40 till 50 år, jämförbart med nya rör. Det förutsätter att rören var i tillräckligt gott skick för metoden och att jobbet dokumenterades ordentligt."]) +
     sec("Vad påverkar livslängden?", []) + ul([
@@ -235,7 +236,7 @@ GUIDES = {
  "rotavdrag-relining": {
   "h1":"ROT-avdrag på relining: så mycket får du tillbaka",
   "title":"ROT-avdrag på relining 2026 – regler och exempel | Reliningkoll",
-  "desc":"Relining i egen villa är ROT-berättigat. Här är reglerna, hur mycket du får tillbaka och vad som inte omfattas.",
+  "desc":"Relining i egen villa är ROT-berättigat. Här är reglerna, hur mycket du får tillbaka, taket per person och vad som inte omfattas.",
   "body": sec("Reglerna i korthet", [
     "Du kan dra av 30 procent av arbetskostnaden för relining i din egen villa, med ett tak på 50 000 kr per person och år. Om två äger huset kan ni använda bådas avdrag."]) +
     sec("Räkneexempel", [],) + ul([
@@ -262,7 +263,7 @@ def build_guides():
     <section><div class="wrap"><div class="cta-band rv"><h2>Redo att jämföra?</h2>
       <p>Få upp till tre offerter från lokala reliningfirmor. Gratis och utan förpliktelse.</p>
       <a class="btn btn-primary btn-lg" href="/offert/">Få offerter</a></div></div></section>'''
-    write("/guider/index.html", page("Guider om relining och avlopp | Reliningkoll",
+    write("/guider/index.html", page("Guider om relining och avlopp – metoder, priser och råd",
       "Guider om relining och avlopp: metoder, priser, livslängd, gjutjärnsrör, skorsten och ROT-avdrag. Allt förklarat enkelt och utan krångel.",
       "/guider/", body, crumb=[("Hem","/"),("Guider","/guider/")]))
 
@@ -271,6 +272,12 @@ def build_guides():
         faq = g.get("faq", [])
         _i = guide_slugs.index(slug)
         others = [guide_slugs[(_i + k) % len(guide_slugs)] for k in range(1, 5)]
+        _sum = SUMMARY.get(slug)
+        sum_box = (f'<div class="answer"><p><strong>Kort svar.</strong> {esc(_sum)}</p></div>'
+                   if _sum else '')
+        _chk = CHECK.get(slug)
+        check_block = ('<h2>Checklista</h2><ul>' + ''.join(f'<li>{esc(x)}</li>' for x in _chk) + '</ul>'
+                       ) if _chk else '' 
         rel = ('<h2>Relaterade guider</h2><div class="pills">'
                + ''.join(f'<a href="/guider/{x}/">{esc(GUIDES[x]["h1"].split(":")[0].split("?")[0])}</a>' for x in others)
                + '<a href="/pris/">Priser 2026</a><a href="/relining/">Hitta firmor i din kommun</a>'
@@ -280,10 +287,12 @@ def build_guides():
           <h1 class="h1">{esc(g["h1"])}</h1>
           <p class="lead">{esc(g["desc"])}</p>
           <p class="meta-line">Uppdaterad 2026 &middot; Läs tid ca 6 min</p>
+          {sum_box}
         </div></section>
         <section style="padding-top:0"><div class="wrap"><div class="prose">
           {g["body"]}
           {g.get("body2","")}
+          {check_block}
           <h2>Vanliga frågor</h2>
           <div class="faq">{''.join(f'<details><summary>{esc(q)}</summary><p>{esc(a)}</p></details>' for q,a in faq)}</div>
           {rel}
