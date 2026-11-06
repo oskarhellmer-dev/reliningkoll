@@ -185,7 +185,7 @@ AREAS = {
  "haparanda":["Haparanda","Kalix","Övertorneå","Karungi","Seskarö"],
  "kalix":["Kalix","Töre","Rolfs","Morjärv","Sangis"],
  "boden":["Boden","Sävast","Harads","Unbyn","Gunnarsbyn"],
- "kiruna":["Kiruna","Vittangi","Svappavaara","Karesuando","Jukkasjärvi"],
+ "kiruna":["Vittangi","Svappavaara","Karesuando","Jukkasjärvi"],
  "gallivare":["Gällivare","Malmberget","Koskullskulle","Hakkas","Nilivaara"],
  "vanersborg2":["Vänersborg","Trollhättan","Uddevalla","Lilla Edet","Mellerud"],
 }
@@ -194,7 +194,8 @@ def _slug_order():
     out = []
     for lan, cities in LAN.items():
         for slug, name in cities:
-            out.append((slug, name, lan, AREAS.get(slug, [])))
+            areas = [a for a in AREAS.get(slug, []) if a.lower() != name.lower()]
+            out.append((slug, name, lan, areas))
     return out
 
 ALL = _slug_order()
