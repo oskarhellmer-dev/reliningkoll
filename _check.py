@@ -2,6 +2,7 @@ import os, re, glob
 ROOT="/home/clawd/reliningkoll"
 pages={}
 for f in glob.glob(ROOT+"/**/*.html", recursive=True):
+    if "/_preview/" in f: continue
     rel=f.replace(ROOT,"")
     pages[rel]=open(f,encoding="utf-8").read()
 

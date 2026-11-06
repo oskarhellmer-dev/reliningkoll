@@ -59,6 +59,8 @@ for f in glob.glob(os.path.join(ROOT, "**", "*.html"), recursive=True):
     rel = f.replace(ROOT, "")
     if rel.endswith("404.html"):
         continue
+    if rel.startswith("/_preview/") or rel.startswith("/__pycache__/"):
+        continue
     if rel.endswith("index.html"):
         rel = rel[:-len("index.html")]
     loc = BASE + rel
@@ -124,5 +126,6 @@ og.save(os.path.join(ROOT,"og.png"))
 print("  bild: og.png")
 
 # 7. summering
-n = len(glob.glob(os.path.join(ROOT,"**","*.html"), recursive=True))
+n = len([f for f in glob.glob(os.path.join(ROOT,"**","*.html"), recursive=True)
+         if "/_preview/" not in f and "/__pycache__/" not in f])
 print(f"\nKLART: {n} HTML-sidor, sitemap {len(urls)}, robots, favicon (svg/png), og.png")
